@@ -202,7 +202,7 @@ Lors de la création d'une instance de `CasePlateau`, le constructeur initialise
    - `casePlateau (1x1 CasePlateau)` : La case du plateau à vérifier.
    
    **Retour :**
-   Renvoie vrai si la case est occupée par une pièce, sinon renvoie faux. Type renvoyé est `1x1 logical`.
+   Renvoie vrai si la case est occupée par une pièce, sinon renvoie faux. 
 
 
 ### Classe Plateau
@@ -246,7 +246,7 @@ Lors de la création d'une instance de `Plateau`, le constructeur initialise `ma
    - `pos (1x1 Pos)` : La position à vérifier.
    
    **Retour :**
-   Renvoie vrai si la case est occupée, sinon renvoie faux. Type renvoyé est `1x1 logical`.
+   Renvoie vrai si la case est occupée, sinon renvoie faux. 
 
 4. **initPartie(plateau)**
    Cette méthode initialise le plateau pour une nouvelle partie, plaçant chaque pièce à sa position initiale pour un jeu d'échecs standard.
@@ -261,7 +261,7 @@ Lors de la création d'une instance de `Plateau`, le constructeur initialise `ma
    - `plateau (1x1 Plateau)` : L'instance du plateau pour lequel la liste doit être générée.
    
    **Retour :**
-   Une liste représentant toutes les pièces sur le plateau. Type renvoyé est `1xn struct`.
+   Une liste représentant toutes les pièces sur le plateau. 
 
 6. **pieceAPosition(plateau, pos)**
    Cette méthode retourne la pièce située à une position spécifique sur le plateau.
@@ -271,7 +271,7 @@ Lors de la création d'une instance de `Plateau`, le constructeur initialise `ma
    - `pos (1x1 Pos)` : La position à vérifier.
    
    **Retour :**
-   Renvoie la pièce située à la position spécifiée. Type renvoyé est `1x1 Piece`.
+   Renvoie la pièce située à la position spécifiée.
 
 
 ### Classe JeuEchec
@@ -298,7 +298,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
    
    **Retour :**
-   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur. Type renvoyé est `1x1 logical`.
+   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur. 
 
 2. **estCaseJoueurInverse(jeu, pos, joueur)**
    Détermine si une case contient une pièce qui appartient au joueur adverse.
@@ -309,7 +309,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
    
    **Retour :**
-   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur inverse. Type renvoyé est `1x1 logical`.
+   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur inverse. 
 
 3. **estEchec(jeu, joueur)**
    Détermine si un joueur est en échec. Le joueur est en échec si un mouvement du joueur adverse peut capturer son roi.
@@ -319,7 +319,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
    
    **Retour :**
-   Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. Type renvoyé est `1x1 logical`.
+   Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
 4. **estEchecEtMat(jeu, joueur)**
    Détermine si un joueur est en échec et mat. Le joueur est en échec et mat si aucun mouvement ne peut le sortir d'être en échec.
@@ -329,7 +329,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
    
    **Retour :**
-   Renvoie `true` si aucun mouvement du joueur ne le sort d'être en échec. Type renvoyé est `1x1 logical`.
+   Renvoie `true` si aucun mouvement du joueur ne le sort d'être en échec. 
 
 5. **estMouvementValide(jeu, posDepart, posFin)**
    Détermine si un mouvement est valide. Un mouvement est valide si la pièce à la position de départ peut se déplacer à la position de fin dans sa liste de mouvements valides.
@@ -340,7 +340,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `posFin (1x1 Pos)` : La position finale après le déplacement.
    
    **Retour :**
-   Renvoie `true` si le mouvement est valide. Type renvoyé est `1x1 logical`.
+   Renvoie `true` si le mouvement est valide.
 
 6. **jouerPartie(jeu)**
    Joue une partie d'échecs. Initialise l'interface, le plateau, le joueur courant et place les pièces initiales. Tant que le joueur courant n'est pas échec et mat, fait le tour du joueur courant et passe au joueur suivant.
@@ -356,7 +356,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `pos (1x1 Pos)` : La position du cavalier.
    
    **Retour :**
-   La liste des mouvements possibles du cavalier à la position donnée. Type renvoyé est `1xn Pos`.
+   La liste des mouvements possibles du cavalier à la position donnée.
 
 8. **listeMouvementDame(jeu, pos)**
    Retourne la liste des mouvements possibles d'une dame à une position donnée. Assume que la dame est présente dans la case.
@@ -366,7 +366,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `pos (1x1 Pos)` : La position de la dame.
    
    **Retour :**
-   La liste des mouvements possibles de la dame à la position donnée. Type renvoyé est `1xn Pos`.
+   La liste des mouvements possibles de la dame à la position donnée. 
 
 9. **listeMouvementFou(jeu, pos)**
    Retourne la liste des mouvements possibles d'un fou à une position donnée. Assume que le fou est présent dans la case.
@@ -376,7 +376,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
    - `pos (1x1 Pos)` : La position du fou.
    
    **Retour :**
-   La liste des mouvements possibles du fou à la position donnée. Type renvoyé est `1xn Pos`.
+   La liste des mouvements possibles du fou à la position donnée. 
 
 10. **listeMouvementPion(jeu, pos)**
     Retourne la liste des mouvements possibles d'un pion à une position donnée. Assume que le pion est présent dans la case.
@@ -386,7 +386,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `pos (1x1 Pos)` : La position du pion.
     
     **Retour :**
-    La liste des mouvements possibles du pion à la position donnée. Type renvoyé est `1xn Pos`.
+    La liste des mouvements possibles du pion à la position donnée. 
 
 11. **listeMouvementRoi(jeu, pos)**
     Retourne la liste des mouvements possibles d'un roi à une position donnée. Assume que le roi est présent dans la case.
@@ -396,7 +396,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `pos (1x1 Pos)` : La position du roi.
     
     **Retour :**
-    La liste des mouvements possibles du roi à la position donnée. Type renvoyé est `1xn Pos`.
+    La liste des mouvements possibles du roi à la position donnée. 
 
 12. **listeMouvementTour(jeu, pos)**
     Retourne la liste des mouvements possibles d'une tour à une position donnée. Assume que la tour est présente dans la case.
@@ -406,7 +406,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `pos (1x1 Pos)` : La position de la tour.
     
     **Retour :**
-    La liste des mouvements possibles de la tour à la position donnée. Type renvoyé est `1xn Pos`.
+    La liste des mouvements possibles de la tour à la position donnée. 
 
 13. **listeMouvementValideJoueur(jeu, joueur)**
     Retourne la liste des mouvements possibles de toutes les pièces d'un joueur.
@@ -416,7 +416,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
     
     **Retour :**
-    La liste des mouvements possibles de toutes les pièces du joueur. Type renvoyé est `1xn Pos`.
+    La liste des mouvements possibles de toutes les pièces du joueur. 
 
 14. **listeMouvementValidePos(jeu, pos)**
     Retourne la liste des mouvements possibles d'une pièce à une position donnée.
@@ -426,7 +426,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `pos (1x1 Pos)` : La position de la pièce.
     
     **Retour :**
-    La liste des mouvements possibles de la pièce à la position donnée. Type renvoyé est `1xn Pos`.
+    La liste des mouvements possibles de la pièce à la position donnée. 
 
 15. **posRoiJoueur(jeu, joueur)**
     Retourne la position du roi appartenant au joueur.
@@ -436,7 +436,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
     
     **Retour :**
-    La position du roi du joueur. Type renvoyé est `1x1 Pos`.
+    La position du roi du joueur. 
 
 16. **tourJoueurCourant(jeu)**
     Effectue le tour du joueur courant. Le tour consiste à :
