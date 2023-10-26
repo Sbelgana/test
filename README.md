@@ -59,7 +59,9 @@ Il y a certaines règles que nous n'aborderons pas dans ce laboratoire en raison
 - Un mouvement rendant invalide la position due à une situation d'échec.
 - Le pat (situation où aucun mouvement valide n'est possible, mais ce n'est pas un échec et mat).
 
-### Classe Pos
+## 4. Classes à implémenter
+
+### 4.1. Classe Pos
 
 La classe `Pos` représente une position sur le plateau d'échecs.
 
@@ -123,7 +125,7 @@ La classe `Pos` représente une position sur le plateau d'échecs.
    Renvoie la somme des deux positions.
 
 
-### Classe TypePiece
+### 4.2. Classe TypePiece
 
 L'énumération `TypePiece` définit les différents types de pièces dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
 - `ROI`: Le roi.
@@ -144,7 +146,7 @@ L'énumération `TypePiece` définit les différents types de pièces dans le je
    **Retour :**
    Renvoie la chaîne de caractères représentant le type.
 
-### Classe Couleur
+### 4.3. Classe Couleur
 
 L'énumération `Couleur` définit les deux couleurs des joueurs dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
 - `NOIR`: La couleur noire.
@@ -171,7 +173,7 @@ L'énumération `Couleur` définit les deux couleurs des joueurs dans le jeu d'�
    Renvoie la chaîne de caractères représentant la couleur.
 
 
-### Classe Piece
+### 4.4. Classe Piece
 
 La classe `Piece` représente une pièce individuelle du jeu d'échecs.
 
@@ -182,7 +184,7 @@ La classe `Piece` représente une pièce individuelle du jeu d'échecs.
 **Constructeur :**
 - `Piece(type_piece: TypePiece, couleur: Couleur)` : Crée une nouvelle instance de `Piece` avec le type de pièce et la couleur spécifiés.
 
-### Classe CasePlateau
+### 4.5. Classe CasePlateau
 
 La classe `CasePlateau` représente une case individuelle sur le plateau d'échecs.
 
@@ -205,7 +207,7 @@ Lors de la création d'une instance de `CasePlateau`, le constructeur initialise
    Renvoie vrai si la case est occupée par une pièce, sinon renvoie faux. 
 
 
-### Classe Plateau
+### 4.6. Classe Plateau
 
 Cette classe représente un plateau de jeu d'échecs, qui est le principal composant du jeu. Elle contient les informations sur chaque case du plateau et les méthodes pour interagir avec celles-ci.
 
@@ -223,7 +225,8 @@ Lors de la création d'une instance de `Plateau`, le constructeur initialise `ma
 ### Méthodes
 
 1. **ajoutePiece(plateau, piece, pos)**
-   Cette méthode permet d'ajouter une pièce à une position spécifique sur le plateau d'échecs. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
+
+Cette méthode permet d'ajouter une pièce à une position spécifique sur le plateau d'échecs. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
    
    **Paramètres :**
    - `plateau (1x1 Plateau)` : L'instance du plateau sur laquelle la pièce doit être ajoutée.
@@ -274,7 +277,7 @@ Lors de la création d'une instance de `Plateau`, le constructeur initialise `ma
    Renvoie la pièce située à la position spécifiée.
 
 
-### Classe JeuEchec
+### 4.7. Classe JeuEchec
 
 La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueurs et la gestion des règles.
 
@@ -439,7 +442,7 @@ La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueur
     La position du roi du joueur. 
 
 16. **tourJoueurCourant(jeu)**
-    Effectue le tour du joueur courant. Le tour consiste à :
+Effectue le tour du joueur courant. Le tour consiste à :
     - Sélectionner un emplacement de départ.
     - Afficher des curseurs sur les cases où la pièce peut faire un mouvement valide.
     - Sélectionner un emplacement parmi les mouvements possibles.
