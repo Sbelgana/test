@@ -18,7 +18,9 @@ Pour ceux qui souhaitent approfondir les règles officielles du jeu d'échecs, v
 L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en utilisant Python et la programmation orientée objet (POO). Pour réaliser cette tâche, nous structurerons notre solution à l'aide de plusieurs classes, chacune représentant un élément spécifique du jeu d'échecs.
 
 ### Structure des classes
-(L'image UML fournie illustre la relation entre ces classes)
+<p align="center">
+    <img src="UML.svg">
+</p>
 
 ### Description des classes
 
