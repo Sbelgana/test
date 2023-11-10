@@ -182,29 +182,33 @@ Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle pe
 
      
    **Retour :**
-   Renvoie une chaîne de caractères.
+   Renvoie la chaîne de caractères représentant l'instance `Pos`.
 
 
-### 5.2. Classe TypePiece <a name="typepiece"></a>
+---
 
-L'énumération `TypePiece` définit les différents types de pièces dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
-- `ROI`: Le roi.
-- `DAME`: La dame.
-- `TOUR`: La tour.
-- `FOU`: Le fou.
-- `CAVALIER`: Le cavalier.
-- `PION`: Le pion.
+### 5.2. Classe TypePiece <a name="typePiece"></a>
 
-### Méthodes
+La classe `TypePiece`, implémentée en tant qu'énumération (`Enum`), joue un rôle clé dans notre modèle d'échecs en Python en définissant les différents types de pièces utilisées dans le jeu. Cette structure permet une représentation claire et standardisée des pièces d'échecs, facilitant ainsi leur gestion et leur identification dans le code.
 
-1. **versChaine(typePiece)**
-   Cette méthode retourne le type sous forme de chaîne de caractères.
-   
-   **Paramètres :**
-   - `typePiece (TypePiece)` : Le type de pièce courant.
-   
-   **Retour :**
-   Renvoie la chaîne de caractères représentant le type.
+Chaque type de pièce d'échecs est représenté par une valeur unique de l'énumération. Les types disponibles sont :
+  - `ROI` (valeur 1) : Représente le roi.
+  - `DAME` (valeur 2) : Représente la dame.
+  - `TOUR` (valeur 3) : Représente la tour.
+  - `FOU` (valeur 4) : Représente le fou.
+  - `CAVALIER` (valeur 5) : Représente le cavalier.
+  - `PION` (valeur 6) : Représente le pion.
+
+**Méthode :**
+
+1. **vers_chaine(self)**
+Convertit l'identifiant numérique d'un type de pièce en une chaîne de caractères représentant son nom. Cette méthode facilite la compréhension du code et l'interaction avec l'utilisateur en transformant les valeurs énumérées en termes plus descriptifs et reconnaissables.
+
+   **Retour :** 
+   Chaîne de caractères correspondant au nom du type de pièce (par exemple, 'Roi', 'Dame', etc.).
+
+---
+
 
 ### 5.3. Classe Couleur <a name="couleur"></a>
 
