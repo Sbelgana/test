@@ -119,7 +119,8 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
 ### Méthodes
 
 1. **estDansListePos(pos, listePos)**
-Méthode Statique qui vérifie si une position donnée (`pos`) se trouve dans une liste spécifiée de positions (`listePos`). Renvoie `True` si `pos` est trouvée dans `listePos`, sinon `False`.
+
+  Méthode Statique qui vérifie si une position donnée (`pos`) se trouve dans une liste spécifiée de positions (`listePos`). Renvoie `True` si `pos` est trouvée dans `listePos`, sinon `False`.
 
    **Paramètres :**
    - `pos (Pos)` : La position à rechercher dans la liste.
@@ -129,7 +130,8 @@ Méthode Statique qui vérifie si une position donnée (`pos`) se trouve dans un
    Renvoie True si la position est trouvée dans la liste, sinon False.
 
 2. **estHorsPlateau(pos)**
-Méthode Statique  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
+
+  Méthode Statique  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
  
    **Paramètres :**
    - `pos (list[Pos])` : Référence sur la liste de positions.
@@ -138,21 +140,22 @@ Méthode Statique  qui vérifie si une ou plusieurs positions sont hors des limi
    Renvoie une liste indiquant si les positions sont hors du plateau (True pour hors du plateau, False sinon).
 
 3. **get_emplacement(self)**
-Calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
+
+  Calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
    
    **Retour :**
    Renvoie la chaîne de caractères représentant l'emplacement.
 
 4. **ind(self)**
- Convertit une position en un indice linéaire, permettant une gestion facile des positions sur un plateau représenté par un tableau unidimensionnel ou des listes.
+ 
+  Convertit une position en un indice linéaire, permettant une gestion facile des positions sur un plateau représenté par un tableau unidimensionnel ou des listes.
  
    **Retour :**
    Renvoie l'indice permettant de se localiser sur le plateau 8x8.
 
 5. **__add__(self, pos)**
 
-
-   Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle permet d'additionner deux instances de `Pos`. Cela revient à additionner séparément les valeurs des lignes et des colonnes des deux instances, créant ainsi une nouvelle position résultante.
+Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle permet d'additionner deux instances de `Pos`. Cela revient à additionner séparément les valeurs des lignes et des colonnes des deux instances, créant ainsi une nouvelle position résultante.
    
    **Paramètres :**
    - `pos (Pos)` : La position.
