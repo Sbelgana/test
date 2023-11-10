@@ -346,166 +346,171 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 ### Méthodes
 
-1. **estCaseJoueur(jeu, pos, joueur)**
-   Détermine si une case contient une pièce qui appartient à un joueur.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `pos (1x1 Pos)` : La position à vérifier.
-   - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
+1. **est_case_joueur(self, pos, joueur)**
+
+Vérifie si une case est occupée par une pièce appartenant au joueur spécifié.
+
+  **Paramètres :** 
+     - `pos` (Pos) : Position de la case à vérifier.
+     - `joueur` (Couleur) : Joueur (Couleur) à vérifier.
    
    **Retour :**
-   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur. 
+   Renvoie `True` si la pièce existe à la position et est de la couleur du joueur. 
 
-2. **estCaseJoueurInverse(jeu, pos, joueur)**
-   Détermine si une case contient une pièce qui appartient au joueur adverse.
+2. **est_case_joueur_inverse(self, pos, joueur)**
+Vérifie si une case est occupée par une pièce appartenant à l'adversaire du joueur spécifié.
    
    **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `pos (1x1 Pos)` : La position à vérifier.
-   - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
+     - `pos` (Pos) : Position de la case à vérifier.
+     - `joueur` (Couleur) : Joueur (Couleur) à vérifier.
    
    **Retour :**
    Renvoie `true` si la pièce existe à la position et est de la couleur du joueur inverse. 
 
-3. **estEchec(jeu, joueur)**
-   Détermine si un joueur est en échec. Le joueur est en échec si un mouvement du joueur adverse peut capturer son roi.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
-   
-   **Retour :**
-   Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
-4. **estEchecEtMat(jeu, joueur)**
-   Détermine si un joueur est en échec et mat. Le joueur est en échec et mat si aucun mouvement ne peut le sortir d'être en échec.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
-   
-   **Retour :**
-   Renvoie `true` si aucun mouvement du joueur ne le sort d'être en échec. 
+3. **liste_mouvement_cavalier(self, pos)**
 
-5. **estMouvementValide(jeu, posDepart, posFin)**
-   Détermine si un mouvement est valide. Un mouvement est valide si la pièce à la position de départ peut se déplacer à la position de fin dans sa liste de mouvements valides.
+Calcule et retourne une liste des mouvements valides pour un cavalier à une position donnée.
    
    **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `posDepart (1x1 Pos)` : La position de départ du mouvement.
-   - `posFin (1x1 Pos)` : La position finale après le déplacement.
-   
-   **Retour :**
-   Renvoie `true` si le mouvement est valide.
-
-6. **jouerPartie(jeu)**
-   Joue une partie d'échecs. Initialise l'interface, le plateau, le joueur courant et place les pièces initiales. Tant que le joueur courant n'est pas échec et mat, fait le tour du joueur courant et passe au joueur suivant.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-
-7. **listeMouvementCavalier(jeu, pos)**
-   Retourne la liste des mouvements possibles d'un cavalier à une position donnée. Assume que le cavalier est présent dans la case.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `pos (1x1 Pos)` : La position du cavalier.
+   - `pos` (Pos) : La position du cavalier.
    
    **Retour :**
    La liste des mouvements possibles du cavalier à la position donnée.
 
-8. **listeMouvementDame(jeu, pos)**
-   Retourne la liste des mouvements possibles d'une dame à une position donnée. Assume que la dame est présente dans la case.
+
+4. **liste_mouvement_fou(self, pos)**
+
+Calcule et retourne une liste des mouvements valides pour un fou à une position donnée.
    
    **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `pos (1x1 Pos)` : La position de la dame.
+   - `pos` (Pos) : : La position du fou.
+   
+   **Retour :**
+   La liste des mouvements possibles du fou à la position donnée.
+
+
+5. **liste_mouvement_tour(self, pos)**
+
+Calcule et retourne une liste des mouvements valides pour une tour à une position donnée.
+   
+   **Paramètres :**
+    - `pos` (Pos) : La position de la tour.
+   
+   **Retour :**
+    La liste des mouvements possibles de la tour à la position donnée.
+
+    
+6. **listeMouvementDame(jeu, pos)**
+   Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
+   
+   **Paramètres :**
+   - `pos` (Pos) : : La position de la dame.
    
    **Retour :**
    La liste des mouvements possibles de la dame à la position donnée. 
 
-9. **listeMouvementFou(jeu, pos)**
-   Retourne la liste des mouvements possibles d'un fou à une position donnée. Assume que le fou est présent dans la case.
-   
-   **Paramètres :**
-   - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   - `pos (1x1 Pos)` : La position du fou.
-   
-   **Retour :**
-   La liste des mouvements possibles du fou à la position donnée. 
 
-10. **listeMouvementPion(jeu, pos)**
-    Retourne la liste des mouvements possibles d'un pion à une position donnée. Assume que le pion est présent dans la case.
+7. **listeMouvementRoi(jeu, pos)**
+    Calcule et retourne une liste des mouvements valides pour un roi à une position donnée.
     
     **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `pos (1x1 Pos)` : La position du pion.
+    - `pos` (Pos) : La position du roi.
+    
+    **Retour :**
+    La liste des mouvements possibles du roi à la position donnée.
+    
+
+8. **listeMouvementPion(jeu, pos)**
+    Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
+    
+    **Paramètres :**
+    - `pos` (Pos) : La position du pion.
     
     **Retour :**
     La liste des mouvements possibles du pion à la position donnée. 
 
-11. **listeMouvementRoi(jeu, pos)**
-    Retourne la liste des mouvements possibles d'un roi à une position donnée. Assume que le roi est présent dans la case.
-    
-    **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `pos (1x1 Pos)` : La position du roi.
-    
-    **Retour :**
-    La liste des mouvements possibles du roi à la position donnée. 
+9. **estMouvementValide(jeu, posDepart, posFin)**
+   Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
 
-12. **listeMouvementTour(jeu, pos)**
-    Retourne la liste des mouvements possibles d'une tour à une position donnée. Assume que la tour est présente dans la case.
-    
-    **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `pos (1x1 Pos)` : La position de la tour.
-    
-    **Retour :**
-    La liste des mouvements possibles de la tour à la position donnée. 
+   **Paramètres :**
+   - `posDepart (Pos)` : La position de départ du mouvement.
+   - `posFin (Pos)` : La position finale après le déplacement.
+   
+   **Retour :**
+   Renvoie `true` si le mouvement est valide.
+   
 
-13. **listeMouvementValideJoueur(jeu, joueur)**
-    Retourne la liste des mouvements possibles de toutes les pièces d'un joueur.
+10. **listeMouvementValideJoueur(jeu, joueur)**
+    Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
     
     **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
     
     **Retour :**
     La liste des mouvements possibles de toutes les pièces du joueur. 
 
-14. **listeMouvementValidePos(jeu, pos)**
-    Retourne la liste des mouvements possibles d'une pièce à une position donnée.
+11. **listeMouvementValidePos(jeu, pos)**
+    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée.
     
     **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `pos (1x1 Pos)` : La position de la pièce.
+    - `pos (Pos)` : La position de la pièce.
     
     **Retour :**
-    La liste des mouvements possibles de la pièce à la position donnée. 
-
-15. **posRoiJoueur(jeu, joueur)**
-    Retourne la position du roi appartenant au joueur.
+    La liste des mouvements possibles de la pièce à la position donnée.
+    
+12. **posRoiJoueur(jeu, joueur)**
+    Retourne la position du roi pour le joueur spécifié.
     
     **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-    - `joueur (1x1 Couleur)` : La couleur du joueur à vérifier.
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
     
     **Retour :**
     La position du roi du joueur. 
 
-16. **tourJoueurCourant(jeu)**
-Effectue le tour du joueur courant. Le tour consiste à :
+13. **estEchec(self, joueur)**
+   Détermine si le joueur spécifié est en situation d'échec.
+   
+   **Paramètres :**
+   - `joueur (Couleur)` : La couleur du joueur à vérifier.
+   
+   **Retour :**
+   Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
+
+14. **estEchecEtMat(self, joueur)**
+   Détermine si le joueur spécifié est en situation d'échec et mat.
+   
+   **Paramètres :**
+   - `joueur (Couleur)` : La couleur du joueur à vérifier.
+   
+   **Retour :**
+   Renvoie `true` si aucun mouvement du joueur ne le sort d'être en échec.
+   
+
+
+
+
+
+15. **tourJoueurCourant(jeu)**
+Gère un tour complet du joueur courant.
+
+Le tour consiste à :
     - Sélectionner un emplacement de départ.
     - Afficher des curseurs sur les cases où la pièce peut faire un mouvement valide.
     - Sélectionner un emplacement parmi les mouvements possibles.
     - Bouger la pièce sur le plateau et mettre à jour l'interface.
     La fonction doit être robuste par rapport aux actions de l'utilisateur. Si le joueur fait une mauvaise sélection à n'importe quel moment (choisit une case qui n'est pas de sa couleur, sélectionne un deuxième emplacement qui n'est pas un mouvement valide, etc.), recommencer la saisie.
-    
-    **Paramètres :**
-    - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
-   
+
+
+16. **isEmplacementDepartValide(self)**
+   Vérifie si l'emplacement de départ d'un mouvement est valide.
+
+17. **reset(self)**
+   Réinitialise le plateau pour une nouvelle partie.
+
+18. **jouerPartie(self)**
+   Gère le déroulement d'une partie d'échecs, y compris les tours des joueurs et la vérification des conditions de fin de partie.
+
 
 ## 8. Barème /100 <a name="bareme"></a>
 
