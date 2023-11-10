@@ -254,25 +254,23 @@ Initialise une nouvelle instance de la classe `Piece`.
     
 ### 5.5. Classe CasePlateau <a name="caseplateau"></a>
 
-La classe `CasePlateau` représente une case individuelle sur le plateau d'échecs.
+La classe `CasePlateau` joue un rôle crucial dans notre modèle d'échecs en Python. Elle représente une case individuelle sur le plateau de jeu. Chaque case peut contenir une pièce d'échecs ou être vide, ce qui est un aspect fondamental de la mécanique du jeu d'échecs.
 
-**Propriétés :**
-- `position` (Pos) : La position de la case sur le plateau.
-- `piece` (Optional[Piece]) : La pièce actuellement présente sur la case. Peut être `None` si la case est vide.
+**Attributs de la Classe :**
+- `piece` (Piece, optionnel) : Cet attribut stocke une référence à une instance de la classe `Piece` si la case est occupée. Si la case est vide, `piece` est `None`.
+
 
 **Constructeur :**
-Lors de la création d'une instance de `CasePlateau`, le constructeur initialise la propriété `piece` avec la valeur spécifiée en paramètre, qui est une instance de la classe `Piece`.
+Initialise une nouvelle instance de la classe `CasePlateau`.
+- `piece` (Piece, optionnel) : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide.
 
 ### Méthodes
 
-1. **estOccupe(casePlateau)**
-   Cette méthode permet de déterminer si la case est occupée, c'est-à-dire si elle contient une pièce.
-   
-   **Paramètres :**
-   - `casePlateau (1x1 CasePlateau)` : La case du plateau à vérifier.
+1. **estOccupe(self)**
+Détermine si la case est occupée par une pièce. Cette méthode est essentielle pour de nombreuses règles du jeu d'échecs, telles que le déplacement des pièces et la capture.
    
    **Retour :**
-   Renvoie vrai si la case est occupée par une pièce, sinon renvoie faux. 
+   Renvoie True si la case est occupée par une pièce False sinon. 
 
 
 ### 5.6. Classe Plateau <a name="plateau"></a>
