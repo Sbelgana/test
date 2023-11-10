@@ -212,29 +212,32 @@ Convertit l'identifiant numérique d'un type de pièce en une chaîne de caract�
 
 ### 5.3. Classe Couleur <a name="couleur"></a>
 
-L'énumération `Couleur` définit les deux couleurs des joueurs dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
+La classe `Couleur`, implémentée comme une énumération (`Enum`), est un composant essentiel de notre modèle d'échecs en Python. Elle est utilisée pour représenter de façon distincte les deux couleurs des joueurs dans le jeu d'échecs, à savoir Blanc et Noir. L'approche d'énumération assure une utilisation cohérente et standardisée des couleurs dans tout le code.
+
+Les membres de cette énumération sont les suivants :
 - `NOIR`: La couleur noire.
 - `BLANC`: La couleur blanche.
 
-### Méthodes
+### Méthodes de Classe
 
-1. **not(couleur)**
-   Surcharge de l'opérateur de négation (~) pour trouver l'autre couleur.
+1. **not(cls, couleur)**
+   Surcharge de l'opérateur de négation (~). Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.
+  
    
    **Paramètres :**
    - `couleur (Couleur)` : La couleur courante.
    
    **Retour :**
-   Renvoie l'autre couleur disponible.
+   La couleur opposée (par exemple, si `BLANC` est fourni, la méthode renvoie `NOIR`).
 
-2. **versChaine(couleur)**
-   Cette méthode retourne la couleur sous forme de chaîne de caractères.
-   
+2. **versChaine(cls, couleur)**
+   Convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
+     
    **Paramètres :**
    - `couleur (Couleur)` : La couleur courante.
    
    **Retour :**
-   Renvoie la chaîne de caractères représentant la couleur.
+   Représentation en chaîne de la couleur (par exemple, 'Blanc' pour `BLANC`).
 
 
 ### 5.4. Classe Piece <a name="piece"></a>
