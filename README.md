@@ -48,7 +48,7 @@ Ce laboratoire vise à :
 2. Développer une compréhension des mécanismes tels que l'encapsulation, l'héritage, le polymorphisme, etc.
 3. Créer une représentation logicielle du jeu d'échecs, en mettant l'accent sur la modélisation des pièces et leurs mouvements.
 
-Pour ceux qui souhaitent approfondir les règles officielles du jeu d'échecs, vous pouvez consulter la page Wikipedia dédiée au sujet ou d'autres ressources spécialisées.
+Pour ceux qui souhaitent approfondir les règles officielles du jeu d'échecs, vous pouvez consulter la page [Wikipedia](https://fr.wikipedia.org/wiki/%C3%89checs#R%C3%A8gles_du_jeu) dédiée au sujet ou d'autres ressources spécialisées.
 
 ## 3. Description du problème <a name="description"></a>
 
