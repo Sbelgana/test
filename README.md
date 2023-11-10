@@ -8,7 +8,7 @@
 - [Directives particulières](#directives)
 - [Introduction](#introduction)
 - [Objectifs du laboratoire](#objectif)
-- [Description du problème](#description)Concepts <a name="concepts"></a>
+- [Description du problème](#description)
 - [Concepts](#concepts)
 - [Classes à implémenter](#classes)
     - [Classe Pos](#pos)
@@ -484,3 +484,17 @@ Effectue le tour du joueur courant. Le tour consiste à :
     
     **Paramètres :**
     - `jeu (1x1 JeuEchec)` : Référence au jeu d'échecs.
+   
+
+## 8. Barème /100 <a name="bareme"></a>
+
+|**Nom des fonctions**|**Nombre de points attribuer**|
+| :- | :- |  
+
+
+## Annexe: Guide et normes de codage <a name="annexe"></a>
+- [Le guide maison](https://github.com/INF1007-Gabarits/Guide-codage-python) de normes supplémentaires à respecter
+- [Le plugin Pycharm Pylint](https://plugins.jetbrains.com/plugin/11084-pylint) qui analyse votre code et indique certaines erreurs. 
+- [Quelques indications en français sur PEP8](https://openclassrooms.com/fr/courses/4425111-perfectionnez-vous-en-python/4464230-assimilez-les-bonnes-pratiques-de-la-pep-8)
+- [La documentation PEP8 Officielle](https://www.python.org/dev/peps/pep-0008/)
+
