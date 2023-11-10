@@ -37,7 +37,7 @@ L'objectif ici n'est pas seulement de construire une application Python qui simu
 
 Préparez-vous donc à une expérience riche en apprentissages et en défis. Ce laboratoire est plus qu'un simple exercice technique; c'est une exploration de la logique, de la stratégie, et de l'histoire, le tout encadré par la puissance et la souplesse de programmation; c'est un voyage à travers l'histoire, la stratégie et la logique, facilité par les puissants outils de la programmation orientée objet.
 
-## 1. Objectifs <a name="objectif"></a>
+## 2. Objectifs <a name="objectif"></a>
 
 Le jeu d'échecs est un jeu stratégique ancestral qui oppose deux joueurs sur un plateau. Chaque joueur dispose d'un ensemble de pièces ayant des mouvements et des fonctions spécifiques. Le principal objectif est de mettre le roi adverse en échec et mat, situation dans laquelle le roi est en position d'être capturé sans possibilité d'échappatoire.
 
@@ -50,7 +50,7 @@ Ce laboratoire vise à :
 
 Pour ceux qui souhaitent approfondir les règles officielles du jeu d'échecs, vous pouvez consulter la page Wikipedia dédiée au sujet ou d'autres ressources spécialisées.
 
-## 2. Description du problème <a name="description"></a>
+## 3. Description du problème <a name="description"></a>
 
 L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en utilisant Python et la programmation orientée objet (POO). Pour réaliser cette tâche, nous structurerons notre solution à l'aide de plusieurs classes, chacune représentant un élément spécifique du jeu d'échecs.
 
@@ -75,13 +75,13 @@ L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en ut
 2. **La représentation de l'état d'une partie d'échecs**: Ce segment est couvert par les classes Pos, TypePiece, Couleur, Piece, CasePlateau, et Plateau. Ensemble, elles définissent et gèrent l'état actuel du plateau et des pièces.
 3. **La gestion du jeu d'échecs et de ses règles**: La classe JeuEchec est responsable de cette partie. Elle interagit avec toutes les autres classes pour appliquer les règles du jeu, gérer les tours et déterminer les résultats.
 
-## 3. Concepts <a name="concepts"></a>
+## 4. Concepts <a name="concepts"></a>
 
-### 3.1 Interface
+### 4.1 Interface
 
 L'affichage du jeu d'échecs sera géré par une classe nommée `Interface` fournie avec cet énoncé de travail. Cette classe fonctionne de manière autonome et ne nécessite aucune connaissance des éléments à implémenter dans le reste du laboratoire. Pour comprendre son fonctionnement, veuillez consulter la documentation de la classe ainsi que le script de démonstration. Ces ressources vous aideront à vous familiariser avec la manière d'utiliser cette interface.
 
-### 3.2 Règles à implémenter
+### 4.2 Règles à implémenter
 
 Toutes les règles du jeu d'échecs ne sont pas faciles à mettre en œuvre. Dans ce laboratoire, nous nous concentrerons sur l'implémentation d'un sous-ensemble des règles complètes du jeu d'échecs. Plus précisément, vous allez travailler sur :
 - Les mouvements possibles pour chaque type de pièce.
@@ -96,9 +96,9 @@ Il y a certaines règles que nous n'aborderons pas dans ce laboratoire en raison
 - Un mouvement rendant invalide la position due à une situation d'échec.
 - Le pat (situation où aucun mouvement valide n'est possible, mais ce n'est pas un échec et mat).
 
-## 4. Classes à implémenter <a name="classes"></a>
+## 5. Classes à implémenter <a name="classes"></a>
 
-### 4.1. Classe Pos <a name="pos"></a>
+### 5.1. Classe Pos <a name="pos"></a>
 
 La classe `Pos` représente une position sur le plateau d'échecs.
 
@@ -162,7 +162,7 @@ La classe `Pos` représente une position sur le plateau d'échecs.
    Renvoie la somme des deux positions.
 
 
-### 4.2. Classe TypePiece <a name="typepiece"></a>
+### 5.2. Classe TypePiece <a name="typepiece"></a>
 
 L'énumération `TypePiece` définit les différents types de pièces dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
 - `ROI`: Le roi.
@@ -183,7 +183,7 @@ L'énumération `TypePiece` définit les différents types de pièces dans le je
    **Retour :**
    Renvoie la chaîne de caractères représentant le type.
 
-### 4.3. Classe Couleur <a name="couleur"></a>
+### 5.3. Classe Couleur <a name="couleur"></a>
 
 L'énumération `Couleur` définit les deux couleurs des joueurs dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
 - `NOIR`: La couleur noire.
@@ -210,7 +210,7 @@ L'énumération `Couleur` définit les deux couleurs des joueurs dans le jeu d'�
    Renvoie la chaîne de caractères représentant la couleur.
 
 
-### 4.4. Classe Piece <a name="piece"></a>
+### 5.4. Classe Piece <a name="piece"></a>
 
 La classe `Piece` représente une pièce individuelle du jeu d'échecs.
 
@@ -221,7 +221,7 @@ La classe `Piece` représente une pièce individuelle du jeu d'échecs.
 **Constructeur :**
 - `Piece(type_piece: TypePiece, couleur: Couleur)` : Crée une nouvelle instance de `Piece` avec le type de pièce et la couleur spécifiés.
 
-### 4.5. Classe CasePlateau <a name="caseplateau"></a>
+### 5.5. Classe CasePlateau <a name="caseplateau"></a>
 
 La classe `CasePlateau` représente une case individuelle sur le plateau d'échecs.
 
@@ -244,7 +244,7 @@ Lors de la création d'une instance de `CasePlateau`, le constructeur initialise
    Renvoie vrai si la case est occupée par une pièce, sinon renvoie faux. 
 
 
-### 4.6. Classe Plateau <a name="plateau"></a>
+### 5.6. Classe Plateau <a name="plateau"></a>
 
 Cette classe représente un plateau de jeu d'échecs, qui est le principal composant du jeu. Elle contient les informations sur chaque case du plateau et les méthodes pour interagir avec celles-ci.
 
@@ -314,7 +314,7 @@ Cette méthode permet d'ajouter une pièce à une position spécifique sur le pl
    Renvoie la pièce située à la position spécifiée.
 
 
-### 4.7. Classe JeuEchec <a name="jeu"></a>
+### 5.7. Classe JeuEchec <a name="jeu"></a>
 
 La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueurs et la gestion des règles.
 
