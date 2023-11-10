@@ -137,19 +137,19 @@ Méthode Statique  qui vérifie si une ou plusieurs positions sont hors des limi
    **Retour :**
    Renvoie une liste indiquant si les positions sont hors du plateau (True pour hors du plateau, False sinon).
 
-4. **get_emplacement(self)**
+3. **get_emplacement(self)**
 Calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
    
    **Retour :**
    Renvoie la chaîne de caractères représentant l'emplacement.
 
-5. **ind(self)**
+4. **ind(self)**
  Convertit une position en un indice linéaire, permettant une gestion facile des positions sur un plateau représenté par un tableau unidimensionnel ou des listes.
  
    **Retour :**
    Renvoie l'indice permettant de se localiser sur le plateau 8x8.
 
-6. **__add__(self, pos)**
+5. **__add__(self, pos)**
 
 
    Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle permet d'additionner deux instances de `Pos`. Cela revient à additionner séparément les valeurs des lignes et des colonnes des deux instances, créant ainsi une nouvelle position résultante.
@@ -161,7 +161,7 @@ Calcule et retourne l'emplacement alphanumérique de la position basée sur les 
    Renvoie la somme des deux positions.
 
 
-7. **__add__(self, pos)**
+6. **__eq__(self, pos)**
 
   Cette méthode surcharge l'opérateur de comparaison (=) pour les positions Compare l'instance actuelle de `Pos` avec une autre instance pour vérifier si elles représentent la même position. 
   
@@ -173,7 +173,7 @@ Calcule et retourne l'emplacement alphanumérique de la position basée sur les 
 
 
 
-8. **__str__(self, )**
+7. **__str__(self, )**
 
   Cette méthode surcharge l'opérateur de d'affichage pour les positions. Fournit une représentation textuelle de l'instance `Pos`, incluant les informations sur la ligne, la colonne et l'emplacement alphanumérique. 
 
