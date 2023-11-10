@@ -4,7 +4,7 @@
   <img src="https://upload.wikimedia.org/wikipedia/commons/8/8a/Polytechnique_Montr%C3%A9al_logo.jpg" />
 </p>
 
-# TP03 : Librairies scientifiques et graphiques
+# TP04 : Programmation orientée objet
 - [Directives particulières](#directives)
 - [Introduction](#introduction)
 - [Objectifs du laboratoire](#objectif)
@@ -29,9 +29,13 @@
 * Pas de librairies externes autres que celles déjà importées;
 
 ## 1. Introduction <a name="introduction"></a>
+Bienvenue dans cette aventure de programmation orientée objet (POO), où nous allons explorer ensemble le monde captivant du jeu d'échecs, en utilisant Python comme outil de création. Ce laboratoire est une occasion unique de s'immerger dans les principes de la POO tout en s'amusant à modéliser l'un des jeux de stratégie les plus anciens et les plus appréciés au monde.
 
-L’analyse des données fait partie des disciplines les plus prisées de nos jours. Outil stratégique au sein des organisations, elle permet entre autres de mieux comprendre des événements qui se produisent avec les facteurs qui les favorisent, ou encore de mesurer l’impact d’une opération ou d’une politique grâce à des indicateurs de performance.
+Le jeu d'échecs, connu pour sa profondeur stratégique et ses règles élaborées, se prête parfaitement à l'exercice de structuration et d'organisation du code selon les principes de la POO, tels que les classes, l'héritage, le polymorphisme et l'encapsulation. En décomposant le jeu en différentes composantes – pièces, plateau, mouvements – vous allez non seulement apprendre à coder de manière plus intuitive et structurée, mais aussi à penser de manière abstraite, une compétence clé en programmation.
 
+L'objectif ici n'est pas seulement de construire une application Python qui simule une partie d'échecs, mais aussi de vous familiariser avec une approche de codage qui favorise la clarté, la modularité et la réutilisabilité. C'est une invitation à voir au-delà du code et à comprendre comment des éléments séparés s'assemblent pour créer un système complet et fonctionnel.
+
+Préparez-vous donc à une expérience riche en apprentissages et en défis. Ce laboratoire est plus qu'un simple exercice technique; c'est une exploration de la logique, de la stratégie, et de l'histoire, le tout encadré par la puissance et la souplesse de programmation; c'est un voyage à travers l'histoire, la stratégie et la logique, facilité par les puissants outils de la programmation orientée objet.
 
 ## 1. Objectifs <a name="objectif"></a>
 
