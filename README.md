@@ -68,6 +68,7 @@ L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en ut
 - **CasePlateau**: Représente une case individuelle du plateau. Elle peut contenir une pièce ou être vide.
 - **Plateau**: Représente le plateau de jeu complet, composé de 8x8 cases.
 - **JeuEchec**: Cette classe englobe l'ensemble du jeu, y compris le plateau, les joueurs et la gestion des règles.
+- **Interface**: Cette classe contient les fonctions pour l'interface graphique (GUI).
 
 ### Découpage du travail
 
