@@ -162,7 +162,7 @@ La classe `Pos` représente une position sur le plateau d'échecs.
    Renvoie la somme des deux positions.
 
 
-### 4.2. Classe TypePiece <a name="typePiece"></a>
+### 4.2. Classe TypePiece <a name="typepiece"></a>
 
 L'énumération `TypePiece` définit les différents types de pièces dans le jeu d'échecs. Les membres de cette énumération sont les suivants :
 - `ROI`: Le roi.
