@@ -12,7 +12,7 @@
 - [Concepts](#concepts)
 - [Classes à implémenter](#classes)
     - [Classe Pos](#pos)
-    - [Classe TypePiece](#typePiece)
+    - [Classe TypePiece](#typepiece)
     - [Classe Couleur](#couleur)
     - [Classe Piece](#piece)
     - [Classe CasePlateau](#caseplateau)
