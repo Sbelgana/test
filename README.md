@@ -275,69 +275,59 @@ Détermine si la case est occupée par une pièce. Cette méthode est essentiell
 
 ### 5.6. Classe Plateau <a name="plateau"></a>
 
-Cette classe représente un plateau de jeu d'échecs, qui est le principal composant du jeu. Elle contient les informations sur chaque case du plateau et les méthodes pour interagir avec celles-ci.
+La classe `Plateau` est une composante clé de notre modèle d'échecs en Python. Elle représente le plateau de jeu d'échecs, qui est essentiellement un ensemble de cases (instances de `CasePlateau`). La classe gère l'ensemble du plateau, y compris le placement et le mouvement des pièces.
 
-**Description :**
-La classe `Plateau` modélise un plateau de jeu d'échecs. Elle contient un tableau 2D représentant chaque case du plateau et possède des constantes pour spécifier la taille standard du plateau.
-
-**Propriétés :**
-- `matCases (8x8 CasePlateau)` : Il s'agit d'un tableau 2D qui représente le plateau d'échecs. Chaque élément de ce tableau est une instance de `CasePlateau`.
+**Attributs de la Classe :**
+- `matCases` (2D list of `CasePlateau`) : Une matrice 2D qui représente le plateau d'échecs, composée de 8 lignes et 8 colonnes.
 - `NLIGNE = 8 (1x1 double, Constant)` : Cette constante spécifie le nombre de lignes sur le plateau d'échecs.
 - `NCOLONNE = 8 (1x1 double, Constant)` : Cette constante spécifie le nombre de colonnes sur le plateau d'échecs.
 
 **Constructeur :**
-Lors de la création d'une instance de `Plateau`, le constructeur initialise `matCases` comme un tableau 8x8 composé d'instances de `CasePlateau`.
+Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
 
 ### Méthodes
 
-1. **ajoutePiece(plateau, piece, pos)**
+1. **ajoute_piece(self, piece, pos)**
 
-Cette méthode permet d'ajouter une pièce à une position spécifique sur le plateau d'échecs. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau sur laquelle la pièce doit être ajoutée.
-   - `piece (1x1 Piece)` : L'objet représentant la pièce à ajouter.
-   - `pos (1x1 Pos)` : La position à laquelle la pièce doit être placée sur le plateau.
+Ajoute une pièce à une position spécifique sur le plateau. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
+   - **Paramètres :** 
+     - `piece` (Piece) : La pièce à ajouter.
+     - `pos` (Pos) : La position où placer la pièce.
 
-2. **bougePiece(plateau, posDepart, posFin)**
-   Cette méthode permet de déplacer une pièce d'une position à une autre sur le plateau. Après le déplacement, la position de départ est laissée vide.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau sur laquelle le déplacement est effectué.
-   - `posDepart (1x1 Pos)` : La position initiale de la pièce avant le déplacement.
-   - `posFin (1x1 Pos)` : La position finale après le déplacement.
 
-3. **estCaseOccupe(plateau, pos)**
-   Cette méthode permet de vérifier si une case particulière du plateau est occupée par une pièce.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau à vérifier.
-   - `pos (1x1 Pos)` : La position à vérifier.
-   
+2. **bouge_piece(self, pos_depart, pos_fin)**
+
+Déplace une pièce d'une position de départ à une position de fin sur le plateau. Après le déplacement, la position de départ est laissée vide.
+   - **Paramètres :** 
+     - `pos_depart` (Pos) : La position initiale de la pièce.
+     - `pos_fin` (Pos) : La position finale de la pièce.
+
+3. **est_case_occupe(self, pos)**
+
+Vérifie si une case spécifique est occupée par une pièce.
+   - **Paramètres :** 
+     - `pos` (Pos) : La position de la case à vérifier.
+      
    **Retour :**
    Renvoie vrai si la case est occupée, sinon renvoie faux. 
 
-4. **initPartie(plateau)**
-   Cette méthode initialise le plateau pour une nouvelle partie, plaçant chaque pièce à sa position initiale pour un jeu d'échecs standard.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau à initialiser.
+4. **init_partie(self)**
 
-5. **listePiece(plateau)**
-   Cette méthode crée une liste des pièces actuellement présentes sur le plateau. Cette liste peut être utilisée pour interagir avec l'interface utilisateur ou pour d'autres fonctionnalités.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau pour lequel la liste doit être générée.
-   
+   Initialise le plateau pour une nouvelle partie, plaçant les pièces dans leurs positions de départ standard.
+
+
+5. **liste_piece(self)**
+
+Crée et retourne une liste des pièces actuellement présentes sur le plateau, incluant des informations sur leur type, couleur et emplacement.
+      
    **Retour :**
    Une liste représentant toutes les pièces sur le plateau. 
 
-6. **pieceAPosition(plateau, pos)**
-   Cette méthode retourne la pièce située à une position spécifique sur le plateau.
-   
-   **Paramètres :**
-   - `plateau (1x1 Plateau)` : L'instance du plateau à consulter.
-   - `pos (1x1 Pos)` : La position à vérifier.
+6. **piece_a_position(self, pos)**
+
+Retourne la pièce située à une position spécifiée sur le plateau.
+  **Paramètres :** 
+     - `pos` (Pos) : La position à vérifier sur le plateau.
    
    **Retour :**
    Renvoie la pièce située à la position spécifiée.
@@ -345,16 +335,14 @@ Cette méthode permet d'ajouter une pièce à une position spécifique sur le pl
 
 ### 5.7. Classe JeuEchec <a name="jeu"></a>
 
-La classe `JeuEchec` englobe l'ensemble du jeu, y compris le plateau, les joueurs et la gestion des règles.
+La classe `JeuEchec` est le cœur de notre application de jeu d'échecs en Python. Elle coordonne les éléments du jeu, y compris le plateau, les pièces, et les règles du jeu d'échecs. Cette classe gère également le déroulement de la partie, y compris le changement de tour entre les joueurs.
 
-**Propriétés :**
-- `plateau` (Plateau) : Le plateau de jeu.
-- `joueur_blanc` (Type[Joueur]) : Le joueur jouant les pièces blanches.
-- `joueur_noir` (Type[Joueur]) : Le joueur jouant les pièces noires.
-- `tour_blanc` (bool) : Un booléen indiquant si c'est le tour du joueur blanc.
+**Attributs de la Classe :**
+- `plateau` (Plateau) : Représente le plateau de jeu.
+- `joueurCourant` (Couleur) : Indique le joueur qui doit jouer, initialisé à Blanc.
 
 **Constructeur :**
-- `JeuEchec()` : Crée une nouvelle instance de `JeuEchec` avec un plateau initialisé et deux joueurs initialisés.
+Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le joueur courant.
 
 ### Méthodes
 
