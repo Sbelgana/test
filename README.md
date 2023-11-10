@@ -103,7 +103,7 @@ Il y a certaines règles que nous n'aborderons pas dans ce laboratoire en raison
 La classe `Pos`, essentielle dans notre modèle d'échecs en Python, sert à représenter les positions sur le plateau de jeu. Elle démontre comment la programmation orientée objet peut efficacement modéliser des concepts complexes de manière intuitive.
 
 
-**Propriétés de la classe :**
+**Attributs de la Classe :**
 - `ligne` (int) : Représente la ligne de la position sur le plateau, avec 1 correspondant à la première ligne.
 - `colonne` (int) : Indique la colonne de la position, numérotée de 1 à 8, correspondant respectivement aux colonnes 'a' à 'h' dans le jeu d'échecs.
 - `emplacement` (str) : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
@@ -111,7 +111,6 @@ La classe `Pos`, essentielle dans notre modèle d'échecs en Python, sert à rep
 **Constructeur :**
 Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, elle extrait la ligne et la colonne à partir des indices dans la chaîne. Si `ligne_emplacement_ind` est un entier et `colonne` est fourni, ils sont directement utilisés comme ligne et colonne. Si `ligne_emplacement_ind` est un entier sans `colonne`, elle calcule la ligne et la colonne à partir de l'indice linéaire.
 
-- `Pos(ligne_emplacement_ind: int, colonne: Optional[int] = None)`: 
 - `ligne_emplacement_ind` peut être un entier ou une chaîne. Si c'est un entier, il représente soit l'indice unique d'une case sur le plateau (numérotation de 1 à 64), soit la ligne si la colonne est également spécifiée. Si c'est une chaîne, elle représente l'emplacement alphanumérique (par exemple, "c4").
 - `colonne` est facultatif si `ligne_emplacement_ind` est une chaîne. Si fourni, il spécifie la colonne de la position.
 
@@ -242,15 +241,17 @@ Les membres de cette énumération sont les suivants :
 
 ### 5.4. Classe Piece <a name="piece"></a>
 
-La classe `Piece` représente une pièce individuelle du jeu d'échecs.
+La classe `Piece` est une composante fondamentale de notre modèle de jeu d'échecs en Python. Elle est conçue pour représenter une pièce d'échecs individuelle, en combinant son type (par exemple, Roi, Dame, etc.) et sa couleur (Blanc ou Noir). Cette classe incarne l'approche de la programmation orientée objet en associant des attributs et des comportements spécifiques à chaque pièce du jeu.
 
-**Propriétés :**
-- `type_piece` (TypePiece) : Le type de la pièce (par exemple, TypePiece.ROI).
-- `couleur` (Couleur) : La couleur de la pièce (par exemple, Couleur.BLANC).
+**Attributs de la Classe :**
+- `type` (TypePiece) : Décrit le type de la pièce, en utilisant les valeurs de l'énumération `TypePiece`. Cela permet d'identifier facilement si la pièce est un Roi, une Dame, etc.
+- `couleur` (Couleur) : Indique la couleur de la pièce, soit Blanc soit Noir, en utilisant l'énumération `Couleur`. Cet attribut est crucial pour déterminer à quel joueur appartient la pièce.
 
 **Constructeur :**
-- `Piece(type_piece: TypePiece, couleur: Couleur)` : Crée une nouvelle instance de `Piece` avec le type de pièce et la couleur spécifiés.
-
+Initialise une nouvelle instance de la classe `Piece`.
+- `type_piece` (TypePiece) : Le type de la pièce (par exemple, TypePiece.ROI).
+- `couleur` (Couleur) : La couleur de la pièce (par exemple, Couleur.BLANC).
+    
 ### 5.5. Classe CasePlateau <a name="caseplateau"></a>
 
 La classe `CasePlateau` représente une case individuelle sur le plateau d'échecs.
