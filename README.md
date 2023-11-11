@@ -119,7 +119,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
 
 ### Méthodes de la Classe
 
-1. **est_dans_liste_pos(pos, listePos)**
+1. <ins> **est_dans_liste_pos(pos, listePos)** </ins>
 
     *Méthode Statique* qui vérifie si une position donnée (`pos`) se trouve dans une liste spécifiée de positions (`listePos`). Renvoie `True` si `pos` est trouvée dans `listePos`, sinon `False`.
 
@@ -130,7 +130,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    **Retour :**
    Renvoie True si la position est trouvée dans la liste, sinon False.
 
-2. **est_hors_plateau(pos_list)**
+2. <ins> **est_hors_plateau(pos_list)** /<ins> 
 
     *Méthode Statique*  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
  
@@ -140,21 +140,21 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    **Retour :**
    Renvoie une liste indiquant si les positions sont hors du plateau (True pour hors du plateau, False sinon).
 
-3. **get_emplacement(self)**
+3. <ins> **get_emplacement(self)** </ins> 
 
     *Propriété* qui calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
    
    **Retour :**
    Renvoie la chaîne de caractères représentant l'emplacement.
 
-4. **ind(self)**
+4. <ins> **ind(self)** </ins> 
 
      Convertit une position en un indice linéaire, permettant une gestion facile des positions sur un plateau représenté par un tableau unidimensionnel ou des listes.
  
    **Retour :**
    Renvoie l'indice permettant de se localiser sur le plateau 8x8.
 
-6. **__add__(self, addPos)**
+6. <ins>  **__add__(self, addPos)** </ins> 
 
     Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle permet d'additionner deux instances de `Pos`. Cela revient à additionner séparément les valeurs des lignes et des colonnes des deux instances, créant ainsi une nouvelle position résultante.
    
@@ -165,7 +165,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    Renvoie la somme des deux positions.
 
 
-7. **__eq__(self, pos)**
+7. <ins> **__eq__(self, pos)** </ins> 
 
     Cette méthode surcharge l'opérateur de comparaison (=) pour les positions. Compare l'instance actuelle de `Pos` avec une autre instance pour vérifier si elles représentent la même position. 
   
@@ -177,7 +177,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
 
 
 
-7. **__str__(self, )**
+7. <ins> **__str__(self, )** </ins> 
 
     Cette méthode surcharge l'opérateur de d'affichage pour les positions. Fournit une représentation textuelle de l'instance `Pos`, incluant les informations sur la ligne, la colonne et l'emplacement alphanumérique. 
 
@@ -204,7 +204,7 @@ Chaque type de pièce d'échecs est représenté par une valeur unique de l'énu
 
 ### Méthodes de la Classe
 
-1. **vers_chaine(self)**
+1. <ins> **vers_chaine(self)** </ins> 
     Convertit l'identifiant numérique d'un type de pièce en une chaîne de caractères représentant son nom. Cette méthode facilite la compréhension du code et l'interaction avec l'utilisateur en transformant les valeurs énumérées en termes plus descriptifs et reconnaissables.
 
    **Retour :** 
@@ -223,7 +223,7 @@ La classe `Couleur`, implémentée comme une énumération (`Enum`), est un comp
 
 ### Méthodes de la Classe
 
-1. **__invert__(couleur)**
+1. <ins>  **__invert__(couleur)** </ins> 
 
     Cette méthode surcharge l'opérateur unaire de complément binaire (bitwise NOT), représenté par le tilde (~). Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.  
    
@@ -233,7 +233,7 @@ La classe `Couleur`, implémentée comme une énumération (`Enum`), est un comp
    **Retour :**
    La couleur opposée (par exemple, si `BLANC` est fourni, la méthode renvoie `NOIR`).
 
-2. **vers_chaine(cls, couleur)**
+2. <ins>  **vers_chaine(cls, couleur)** </ins> 
    
     Méthodes de classe qui convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
      
@@ -285,7 +285,7 @@ Initialise une nouvelle instance de la classe `CasePlateau`.
 
 ### Méthodes de la Classe
 
-1. **est_occupe(self)**
+1. <ins> **est_occupe(self)** </ins> 
 
     Détermine si la case est occupée par une pièce. Cette méthode est essentielle pour de nombreuses règles du jeu d'échecs, telles que le déplacement des pièces et la capture.
    
