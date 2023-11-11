@@ -166,7 +166,7 @@ Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle pe
 
 6. **__eq__(self, pos)**
 
-  Cette méthode surcharge l'opérateur de comparaison (=) pour les positions Compare l'instance actuelle de `Pos` avec une autre instance pour vérifier si elles représentent la même position. 
+  Cette méthode surcharge l'opérateur de comparaison (=) pour les positions. Compare l'instance actuelle de `Pos` avec une autre instance pour vérifier si elles représentent la même position. 
   
    **Paramètres :**
    - `pos (Pos)` : La position.
@@ -222,8 +222,9 @@ La classe `Couleur`, implémentée comme une énumération (`Enum`), est un comp
 
 ### Méthodes de Classe
 
-1. **not_couleur(cls, couleur)**
-   Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.  
+1. **__invert__(couleur)**
+
+Cette méthode surcharge l'opérateur unaire de complément binaire (bitwise NOT), représenté par le tilde (~). Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.  
    
    **Paramètres :**
    - `couleur (Couleur)` : La couleur courante.
@@ -231,7 +232,7 @@ La classe `Couleur`, implémentée comme une énumération (`Enum`), est un comp
    **Retour :**
    La couleur opposée (par exemple, si `BLANC` est fourni, la méthode renvoie `NOIR`).
 
-2. **vers_chaine(cls, couleur)**
+3. **vers_chaine(cls, couleur)**
    Convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
      
    **Paramètres :**
