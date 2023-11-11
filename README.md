@@ -130,7 +130,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    **Retour :**
    Renvoie True si la position est trouvée dans la liste, sinon False.
 
-2. <ins> **est_hors_plateau(pos_list)** /<ins> 
+2. <ins> **est_hors_plateau(pos_list)** </ins> 
 
     *Méthode Statique*  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
  
@@ -312,7 +312,7 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
 
 ### Méthodes de la Classe
 
-1. **ajoute_piece(self, piece, pos)**
+1. <ins>  ajoute_piece(self, piece, pos)  </ins>  
 
     Ajoute une pièce à une position spécifique sur le plateau, i.e. à l'attribut `matCases`. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
    
@@ -321,7 +321,7 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
      - `pos (Pos)` : La position où placer la pièce.
 
 
-3. **bouge_piece(self, pos_depart, pos_fin)**
+3. <ins>  bouge_piece(self, pos_depart, pos_fin)  </ins>  
 
     Déplace une pièce d'une position de départ à une position de fin sur le plateau, i.e. à l'attribut `matCases`. Après le déplacement, la position de départ est laissée vide.
 
@@ -329,7 +329,7 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
      - `pos_depart (Pos)` : La position initiale de la pièce.
      - `pos_fin (Pos)` : La position finale de la pièce.
 
-5. **est_case_occupe(self, pos)**
+5. <ins>  est_case_occupe(self, pos)  </ins>  
 
     Vérifie si une case spécifique est occupée par une pièce.
 
@@ -339,21 +339,21 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
     **Retour :**
     Renvoie vrai si la case est occupée, sinon renvoie faux. 
 
-4. **init_partie(self)**
+4. <ins>  init_partie(self)  </ins>  
 
     Initialise le plateau pour une nouvelle partie, plaçant les pièces dans leurs positions de départ standard.
 
     Pour chaque case de `matCases`, mettre la case à vide. Puis, ajouter une pièce si une pièce doit se trouver au début dans cette case, en faisant attention à la couleur de la pièce.
 
 
-6. **liste_piece(self)**
+6. <ins>  liste_piece(self)  </ins>  
 
     Crée et retourne une liste de dictionnaires des pièces actuellement présentes sur le plateau, incluant des informations sur leur type, couleur et emplacement.
       
     **Retour :**
     Une liste représentant toutes les pièces sur le plateau. 
 
-6. **piece_a_position(self, pos)**
+6. <ins>  piece_a_position(self, pos)  </ins>  
 
     Retourne la pièce située à une position spécifiée sur le plateau.
 
@@ -388,7 +388,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 ### Méthodes de la Classe
 
-1. **est_case_joueur(self, pos, joueur)**
+1. <ins>  est_case_joueur(self, pos, joueur)  </ins>  
 
     Vérifie si une case est occupée par une pièce appartenant au joueur spécifié.
 
@@ -399,7 +399,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `True` si la pièce existe à la position et est de la couleur du joueur. 
 
-2. **est_case_joueur_inverse(self, pos, joueur)**
+2. <ins>  est_case_joueur_inverse(self, pos, joueur)  </ins>  
 
     Vérifie si une case est occupée par une pièce appartenant à l'adversaire du joueur spécifié.
    
@@ -411,7 +411,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     Renvoie `True` si la pièce existe à la position et est de la couleur du joueur inverse. 
 
 
-3. **liste_mouvement_cavalier(self, pos)**
+3. <ins>  liste_mouvement_cavalier(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un cavalier à une position donnée.
    
@@ -425,7 +425,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     <img src="images/Algo_01.svg">
 </p>
 
-4. **liste_mouvement_fou(self, pos)**
+4. <ins>  liste_mouvement_fou(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un fou à une position donnée.
    
@@ -440,7 +440,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 </p>
 
 
-5. **liste_mouvement_tour(self, pos)**
+5. <ins>  liste_mouvement_tour(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour une tour à une position donnée.
    
@@ -455,7 +455,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 </p>
 
     
-6. **liste_mouvement_dame(self, pos)**
+6. <ins>  liste_mouvement_dame(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
    
@@ -470,7 +470,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 </p>
 
 
-7. **liste_mouvement_roi(self, pos, juste_mouvement=False)**
+7. <ins>  liste_mouvement_roi(self, pos, juste_mouvement=False)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un roi à une position donnée. Si `juste_mouvement` est `True`, retourne une liste de mouvements du roi en ne tenant pas compte de potentiels mises en échec. Si `juste_mouvement` est `False`, vérifier que la position ne conduit pas à un échec.
     
@@ -488,7 +488,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     <img src="images/Algo_05.svg">
 </p>
 
-9. **liste_mouvement_pion(self, pos)**
+9. <ins>  liste_mouvement_pion(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
     
@@ -503,7 +503,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 </p>
 '
 
-10. **est_mouvement_valide(self, pos_depart, pos_fin)**
+10. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
 
     Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
 
@@ -514,7 +514,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `True` si le mouvement est valide.
     
-11. **pos_roi_joueur(self, joueur)**
+11. <ins>  pos_roi_joueur(self, joueur)  </ins>  
 
     Retourne la position du roi pour le joueur spécifié.
     
@@ -528,7 +528,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     <img src="images/Algo_07.svg">
 </p>
 
-12. **liste_mouvement_valide_pos(self, pos, juste_mouvement=False)**
+12. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
     
@@ -539,7 +539,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de la pièce à la position donnée.
     
-13. **liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)**
+13. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
     
@@ -554,7 +554,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     <img src="images/Algo_08.svg">
 </p>
 
-14. **est_echec(self, joueur)**
+14. <ins>  est_echec(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec.
    
@@ -564,7 +564,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
-14. **est_echec_et_mat(self, joueur)**
+14. <ins>  est_echec_et_mat(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec et mat.
    
@@ -576,7 +576,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
     **Notes :** Avant de renvoyer `True` ou `False`, on peut utiliser la fonction `place_curseur_roi` de `Interface` pour afficher au joueur le fait que le roi est Echec et Mat.
 
-16. **isEmplacementDepartValide(self, pos)**
+16. <ins>  isEmplacementDepartValide(self, pos)  </ins>  
     
     Vérifie si l'emplacement de départ d'un mouvement est valide (i.e. une pièce occupe bien la case choisi, la pièce a la bonne couleur...)
 
@@ -586,7 +586,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `True` si l'emplacement de départ est valide. Sinon `False`.
 
-15. **tour_joueur_courant(simple)**
+15. <ins>  tour_joueur_courant(simple)  </ins>  
     Gère un tour complet du joueur courant.
 
     Le tour consiste à :
