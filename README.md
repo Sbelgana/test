@@ -110,13 +110,14 @@ La classe `Pos`, essentielle dans notre modèle d'échecs en Python, sert à rep
 - `get_emplacement *Propriété*` : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
 
 **Constructeur :**
+
 Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, elle extrait la ligne et la colonne à partir des indices dans la chaîne. Si `ligne_emplacement_ind` est un entier et `colonne` est fourni, ils sont directement utilisés comme ligne et colonne. Si `ligne_emplacement_ind` est un entier sans `colonne`, elle calcule la ligne et la colonne à partir de l'indice linéaire.
 
 - `ligne_emplacement_ind` peut être un entier ou une chaîne. Si c'est un entier, il représente soit l'indice unique d'une case sur le plateau (numérotation de 1 à 64), soit la ligne si la colonne est également spécifiée. Si c'est une chaîne, elle représente l'emplacement alphanumérique (par exemple, "c4").
 - `colonne` est facultatif si `ligne_emplacement_ind` est une chaîne. Si fourni, il spécifie la colonne de la position. Défaut à `None`.
 
 
-### Méthodes
+### Méthodes de la Classe
 
 1. **est_dans_liste_pos(pos, listePos)**
 
@@ -201,7 +202,7 @@ Chaque type de pièce d'échecs est représenté par une valeur unique de l'énu
   - `CAVALIER (valeur 5)` : Représente le cavalier.
   - `PION (valeur 6)` : Représente le pion.
 
-**Méthode :**
+### Méthodes de la Classe
 
 1. **vers_chaine(self)**
 Convertit l'identifiant numérique d'un type de pièce en une chaîne de caractères représentant son nom. Cette méthode facilite la compréhension du code et l'interaction avec l'utilisateur en transformant les valeurs énumérées en termes plus descriptifs et reconnaissables.
@@ -220,7 +221,7 @@ La classe `Couleur`, implémentée comme une énumération (`Enum`), est un comp
 - `NOIR (valeur 0)`: La couleur noire.
 - `BLANC (valeur 1)`: La couleur blanche.
 
-### Méthodes de Classe
+### Méthodes de la Classe
 
 1. **__invert__(couleur)**
 
@@ -233,7 +234,8 @@ Cette méthode surcharge l'opérateur unaire de complément binaire (bitwise NOT
    La couleur opposée (par exemple, si `BLANC` est fourni, la méthode renvoie `NOIR`).
 
 3. **vers_chaine(cls, couleur)**
-   Convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
+   
+   Méthodes de classe qui convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
      
    **Paramètres :**
    - `couleur (Couleur)` : La couleur courante.
@@ -254,11 +256,12 @@ La classe `Piece` est une composante fondamentale de notre modèle de jeu d'éch
 - `couleur (Couleur)` : Indique la couleur de la pièce, soit Blanc soit Noir, en utilisant l'énumération `Couleur`. Cet attribut est crucial pour déterminer à quel joueur appartient la pièce.
 
 **Constructeur :**
+
 Initialise une nouvelle instance de la classe `Piece`.
 - `type_piece (TypePiece)` : Le type de la pièce (par exemple, TypePiece.ROI).
 - `couleur (Couleur)` : La couleur de la pièce (par exemple, Couleur.BLANC).
 
-- **Méthodes :**
+### Méthodes de la Classe
 
 Cette classe n'a pas de méthodes, juste les deux attributs précédents !
 
@@ -276,10 +279,11 @@ La classe `CasePlateau` joue un rôle crucial dans notre modèle d'échecs en Py
 
 
 **Constructeur :**
+
 Initialise une nouvelle instance de la classe `CasePlateau`.
 - `piece (Piece, optionnel)` : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide. Défaut à `None`.
 
-### Méthodes
+### Méthodes de la Classe
 
 1. **est_occupe(self)**
 Détermine si la case est occupée par une pièce. Cette méthode est essentielle pour de nombreuses règles du jeu d'échecs, telles que le déplacement des pièces et la capture.
@@ -305,7 +309,7 @@ La classe `Plateau` est une composante clé de notre modèle d'échecs en Python
 **Constructeur :**
 Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
 
-### Méthodes
+### Méthodes de la Classe
 
 1. **ajoute_piece(self, piece, pos)**
 
@@ -376,9 +380,10 @@ La classe `JeuEchec` est le cœur de notre application de jeu d'échecs en Pytho
 - `joueurCourant (Couleur)` : Indique le joueur qui doit jouer, initialisé à Blanc.
 
 **Constructeur :**
+
 Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le joueur courant.
 
-### Méthodes
+### Méthodes de la Classe
 
 1. **est_case_joueur(self, pos, joueur)**
 
