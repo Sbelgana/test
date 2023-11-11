@@ -56,7 +56,7 @@ L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en ut
 
 ### Structure des classes
 <p align="center">
-    <img src="UML.svg">
+    <img src="images/UML.svg">
 </p>
 
 ### Description des classes
