@@ -519,9 +519,6 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles du pion à la position donnée. 
 
-<p align="center">
-    <img src="images/Algo_06.svg">
-</p>
 '
 
 10. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
