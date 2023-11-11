@@ -239,6 +239,9 @@ Les membres de cette énumération sont les suivants :
    Représentation en chaîne de la couleur (par exemple, 'Blanc' pour `BLANC`).
 
 
+---
+
+
 ### 5.4. Classe Piece <a name="piece"></a>
 
 La classe `Piece` est une composante fondamentale de notre modèle de jeu d'échecs en Python. Elle est conçue pour représenter une pièce d'échecs individuelle, en combinant son type (par exemple, Roi, Dame, etc.) et sa couleur (Blanc ou Noir). Cette classe incarne l'approche de la programmation orientée objet en associant des attributs et des comportements spécifiques à chaque pièce du jeu.
@@ -255,7 +258,12 @@ Initialise une nouvelle instance de la classe `Piece`.
 - **Méthodes :**
 
 Cette classe n'a pas de méthodes, juste les deux attributs précédents !
+
+
     
+---
+
+
 ### 5.5. Classe CasePlateau <a name="caseplateau"></a>
 
 La classe `CasePlateau` joue un rôle crucial dans notre modèle d'échecs en Python. Elle représente une case individuelle sur le plateau de jeu. Chaque case peut contenir une pièce d'échecs ou être vide, ce qui est un aspect fondamental de la mécanique du jeu d'échecs.
@@ -275,6 +283,9 @@ Détermine si la case est occupée par une pièce. Cette méthode est essentiell
    
    **Retour :**
    Renvoie True si la case est occupée par une pièce False sinon. 
+
+
+---
 
 
 ### 5.6. Classe Plateau <a name="plateau"></a>
@@ -340,6 +351,8 @@ Retourne la pièce située à une position spécifiée sur le plateau.
    **Retour :**
    Renvoie la pièce située à la position spécifiée.
 
+
+---
 
 ### 5.7. Classe JeuEchec <a name="jeu"></a>
 
