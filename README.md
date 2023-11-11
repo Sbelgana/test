@@ -107,20 +107,20 @@ La classe `Pos`, essentielle dans notre modèle d'échecs en Python, sert à rep
 **Attributs de la Classe :**
 - `ligne` (int) : Représente la ligne de la position sur le plateau, avec 1 correspondant à la première ligne.
 - `colonne` (int) : Indique la colonne de la position, numérotée de 1 à 8, correspondant respectivement aux colonnes 'a' à 'h' dans le jeu d'échecs.
-- `emplacement` (str) : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
+- `get_emplacement` *Propriété*  : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
 
 **Constructeur :**
 Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, elle extrait la ligne et la colonne à partir des indices dans la chaîne. Si `ligne_emplacement_ind` est un entier et `colonne` est fourni, ils sont directement utilisés comme ligne et colonne. Si `ligne_emplacement_ind` est un entier sans `colonne`, elle calcule la ligne et la colonne à partir de l'indice linéaire.
 
 - `ligne_emplacement_ind` peut être un entier ou une chaîne. Si c'est un entier, il représente soit l'indice unique d'une case sur le plateau (numérotation de 1 à 64), soit la ligne si la colonne est également spécifiée. Si c'est une chaîne, elle représente l'emplacement alphanumérique (par exemple, "c4").
-- `colonne` est facultatif si `ligne_emplacement_ind` est une chaîne. Si fourni, il spécifie la colonne de la position.
+- `colonne` est facultatif si `ligne_emplacement_ind` est une chaîne. Si fourni, il spécifie la colonne de la position. Défaut à `None`.
 
 
 ### Méthodes
 
-1. **estDansListePos(pos, listePos)**
+1. **est_dans_liste_pos(pos, listePos)**
 
-  Méthode Statique qui vérifie si une position donnée (`pos`) se trouve dans une liste spécifiée de positions (`listePos`). Renvoie `True` si `pos` est trouvée dans `listePos`, sinon `False`.
+  *Méthode Statique* qui vérifie si une position donnée (`pos`) se trouve dans une liste spécifiée de positions (`listePos`). Renvoie `True` si `pos` est trouvée dans `listePos`, sinon `False`.
 
    **Paramètres :**
    - `pos (Pos)` : La position à rechercher dans la liste.
@@ -129,9 +129,9 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    **Retour :**
    Renvoie True si la position est trouvée dans la liste, sinon False.
 
-2. **estHorsPlateau(pos)**
+2. **est_hors_plateau(pos_list)**
 
-  Méthode Statique  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
+  *Méthode Statique*  qui vérifie si une ou plusieurs positions sont hors des limites d'un plateau de jeu standard (8x8). Retourne une liste de booléens indiquant si chaque position spécifiée est hors des limites.
  
    **Paramètres :**
    - `pos (list[Pos])` : Référence sur la liste de positions.
@@ -141,7 +141,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
 
 3. **get_emplacement(self)**
 
-  Calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
+  *Propriété*. Calcule et retourne l'emplacement alphanumérique de la position basée sur les attributs `ligne` et `colonne`.   
    
    **Retour :**
    Renvoie la chaîne de caractères représentant l'emplacement.
@@ -153,12 +153,12 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
    **Retour :**
    Renvoie l'indice permettant de se localiser sur le plateau 8x8.
 
-5. **__add__(self, pos)**
+5. **__add__(self, addPos)**
 
 Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle permet d'additionner deux instances de `Pos`. Cela revient à additionner séparément les valeurs des lignes et des colonnes des deux instances, créant ainsi une nouvelle position résultante.
    
    **Paramètres :**
-   - `pos (Pos)` : La position.
+   - `addPos (Pos)` : La position.
    
    **Retour :**
    Renvoie la somme des deux positions.
@@ -220,9 +220,8 @@ Les membres de cette énumération sont les suivants :
 
 ### Méthodes de Classe
 
-1. **not(cls, couleur)**
-   Surcharge de l'opérateur de négation (~). Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.
-  
+1. **not_couleur(cls, couleur)**
+   Renvoie la couleur opposée à celle fournie. Cette méthode est particulièrement utile pour alterner les tours entre les joueurs Blanc et Noir.  
    
    **Paramètres :**
    - `couleur (Couleur)` : La couleur courante.
@@ -230,7 +229,7 @@ Les membres de cette énumération sont les suivants :
    **Retour :**
    La couleur opposée (par exemple, si `BLANC` est fourni, la méthode renvoie `NOIR`).
 
-2. **versChaine(cls, couleur)**
+2. **vers_chaine(cls, couleur)**
    Convertit la couleur énumérée en une chaîne de caractères, facilitant l'affichage et la compréhension par l'utilisateur.
      
    **Paramètres :**
@@ -245,29 +244,33 @@ Les membres de cette énumération sont les suivants :
 La classe `Piece` est une composante fondamentale de notre modèle de jeu d'échecs en Python. Elle est conçue pour représenter une pièce d'échecs individuelle, en combinant son type (par exemple, Roi, Dame, etc.) et sa couleur (Blanc ou Noir). Cette classe incarne l'approche de la programmation orientée objet en associant des attributs et des comportements spécifiques à chaque pièce du jeu.
 
 **Attributs de la Classe :**
-- `type` (TypePiece) : Décrit le type de la pièce, en utilisant les valeurs de l'énumération `TypePiece`. Cela permet d'identifier facilement si la pièce est un Roi, une Dame, etc.
+- `type_piece` (TypePiece) : Décrit le type de la pièce, en utilisant les valeurs de l'énumération `TypePiece`. Cela permet d'identifier facilement si la pièce est un Roi, une Dame, etc.
 - `couleur` (Couleur) : Indique la couleur de la pièce, soit Blanc soit Noir, en utilisant l'énumération `Couleur`. Cet attribut est crucial pour déterminer à quel joueur appartient la pièce.
 
 **Constructeur :**
 Initialise une nouvelle instance de la classe `Piece`.
 - `type_piece` (TypePiece) : Le type de la pièce (par exemple, TypePiece.ROI).
 - `couleur` (Couleur) : La couleur de la pièce (par exemple, Couleur.BLANC).
+
+- **Méthodes :**
+
+Cette classe n'a pas de méthodes, juste les deux attributs précédents !
     
 ### 5.5. Classe CasePlateau <a name="caseplateau"></a>
 
 La classe `CasePlateau` joue un rôle crucial dans notre modèle d'échecs en Python. Elle représente une case individuelle sur le plateau de jeu. Chaque case peut contenir une pièce d'échecs ou être vide, ce qui est un aspect fondamental de la mécanique du jeu d'échecs.
 
 **Attributs de la Classe :**
-- `piece` (Piece, optionnel) : Cet attribut stocke une référence à une instance de la classe `Piece` si la case est occupée. Si la case est vide, `piece` est `None`.
+- `piece` (Piece, optionnel) : Cet attribut stocke une référence à une instance de la classe `Piece` si la case est occupée. Si la case est vide, `piece` est `None`. 
 
 
 **Constructeur :**
 Initialise une nouvelle instance de la classe `CasePlateau`.
-- `piece` (Piece, optionnel) : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide.
+- `piece` (Piece, optionnel) : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide. Défaut à `None`.
 
 ### Méthodes
 
-1. **estOccupe(self)**
+1. **est_occupe(self)**
 Détermine si la case est occupée par une pièce. Cette méthode est essentielle pour de nombreuses règles du jeu d'échecs, telles que le déplacement des pièces et la capture.
    
    **Retour :**
@@ -290,7 +293,7 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
 
 1. **ajoute_piece(self, piece, pos)**
 
-Ajoute une pièce à une position spécifique sur le plateau. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
+Ajoute une pièce à une position spécifique sur le plateau, i.e. à l'attribut `matCases`. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
    - **Paramètres :** 
      - `piece` (Piece) : La pièce à ajouter.
      - `pos` (Pos) : La position où placer la pièce.
@@ -298,7 +301,7 @@ Ajoute une pièce à une position spécifique sur le plateau. La méthode place 
 
 2. **bouge_piece(self, pos_depart, pos_fin)**
 
-Déplace une pièce d'une position de départ à une position de fin sur le plateau. Après le déplacement, la position de départ est laissée vide.
+Déplace une pièce d'une position de départ à une position de fin sur le plateau, i.e. à l'attribut `matCases`. Après le déplacement, la position de départ est laissée vide.
    - **Paramètres :** 
      - `pos_depart` (Pos) : La position initiale de la pièce.
      - `pos_fin` (Pos) : La position finale de la pièce.
@@ -316,10 +319,13 @@ Vérifie si une case spécifique est occupée par une pièce.
 
    Initialise le plateau pour une nouvelle partie, plaçant les pièces dans leurs positions de départ standard.
 
+   Pour chaque case de `matCases`, mettre la case à vide. Puis, ajouter une pièce si une pièce doit se trouver au début
+   dans cette case, en faisant attention à la couleur de la pièce.
 
-5. **liste_piece(self)**
 
-Crée et retourne une liste des pièces actuellement présentes sur le plateau, incluant des informations sur leur type, couleur et emplacement.
+6. **liste_piece(self)**
+
+Crée et retourne une liste de dictionnaires des pièces actuellement présentes sur le plateau, incluant des informations sur leur type, couleur et emplacement.
       
    **Retour :**
    Une liste représentant toutes les pièces sur le plateau. 
@@ -327,6 +333,7 @@ Crée et retourne une liste des pièces actuellement présentes sur le plateau, 
 6. **piece_a_position(self, pos)**
 
 Retourne la pièce située à une position spécifiée sur le plateau.
+
   **Paramètres :** 
      - `pos` (Pos) : La position à vérifier sur le plateau.
    
@@ -338,8 +345,16 @@ Retourne la pièce située à une position spécifiée sur le plateau.
 
 La classe `JeuEchec` est le cœur de notre application de jeu d'échecs en Python. Elle coordonne les éléments du jeu, y compris le plateau, les pièces, et les règles du jeu d'échecs. Cette classe gère également le déroulement de la partie, y compris le changement de tour entre les joueurs.
 
+**Notes :** Dans la suite, un mouvement est considéré comme valide dans les conditions suivantes:
+
+- la pièce peut bouger (i.e. elle n'est pas bloquée dans son mouvement)
+- la pièce ne sort pas de l'échéquier.
+- la pièce ne finit pas sur une case où une pièce de la même couleur se trouve.
+- pour le roi (suivant le cas), le mouvement ne le met pas en échec.
+
 **Attributs de la Classe :**
 - `plateau` (Plateau) : Représente le plateau de jeu.
+- `interface` (Interface) : L'interface graphique du jeu.
 - `joueurCourant` (Couleur) : Indique le joueur qui doit jouer, initialisé à Blanc.
 
 **Constructeur :**
@@ -366,7 +381,7 @@ Vérifie si une case est occupée par une pièce appartenant à l'adversaire du 
      - `joueur` (Couleur) : Joueur (Couleur) à vérifier.
    
    **Retour :**
-   Renvoie `true` si la pièce existe à la position et est de la couleur du joueur inverse. 
+   Renvoie `True` si la pièce existe à la position et est de la couleur du joueur inverse. 
 
 
 3. **liste_mouvement_cavalier(self, pos)**
@@ -402,7 +417,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     La liste des mouvements possibles de la tour à la position donnée.
 
     
-6. **listeMouvementDame(jeu, pos)**
+6. **liste_mouvement_dame(self, pos)**
    Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
    
    **Paramètres :**
@@ -412,17 +427,20 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    La liste des mouvements possibles de la dame à la position donnée. 
 
 
-7. **listeMouvementRoi(jeu, pos)**
-    Calcule et retourne une liste des mouvements valides pour un roi à une position donnée.
+7. **liste_mouvement_roi(self, pos, juste_mouvement=False)**
+    Calcule et retourne une liste des mouvements valides pour un roi à une position donnée. Si `juste_mouvement` est `True`, retourne une liste de mouvements du roi en ne tenant pas compte de potentiels mises en échec. Si `juste_mouvement` est `False`, vérifier que la position ne conduit pas à un échec.
     
     **Paramètres :**
     - `pos` (Pos) : La position du roi.
+    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
     
     **Retour :**
     La liste des mouvements possibles du roi à la position donnée.
-    
 
-8. **listeMouvementPion(jeu, pos)**
+    **Indices :**
+    Dans le cas où `juste_mouvement` est `False`, il faut donc vérifier que les mouvements du roi ne le mettent pas en échec. Un moyen simple est de "simuler" le mouvement et de vérifier ce qu'il se passe (échec ou non). Si aucun échec, le mouvement est bon, sinon, on sait que l'on ne peut pas faire ce mouvement.
+
+9. **liste_mouvement_pion(self, pos)**
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
     
     **Paramètres :**
@@ -431,45 +449,46 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     **Retour :**
     La liste des mouvements possibles du pion à la position donnée. 
 
-9. **estMouvementValide(jeu, posDepart, posFin)**
-   Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
-
-   **Paramètres :**
-   - `posDepart (Pos)` : La position de départ du mouvement.
-   - `posFin (Pos)` : La position finale après le déplacement.
-   
-   **Retour :**
-   Renvoie `true` si le mouvement est valide.
-   
-
-10. **listeMouvementValideJoueur(jeu, joueur)**
-    Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
-    
-    **Paramètres :**
-    - `joueur (Couleur)` : La couleur du joueur à vérifier.
-    
-    **Retour :**
-    La liste des mouvements possibles de toutes les pièces du joueur. 
-
-11. **listeMouvementValidePos(jeu, pos)**
-    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée.
+10. **liste_mouvement_valide_pos(self, pos, juste_mouvement=False)**
+    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
     
     **Paramètres :**
     - `pos (Pos)` : La position de la pièce.
+    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
     
     **Retour :**
     La liste des mouvements possibles de la pièce à la position donnée.
     
-12. **posRoiJoueur(jeu, joueur)**
+11. **liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)**
+    Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
+    
+    **Paramètres :**
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
+    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
+    
+    **Retour :**
+    La liste des mouvements possibles de toutes les pièces du joueur. 
+
+12. **est_mouvement_valide(self, pos_depart, pos_fin)**
+   Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
+
+   **Paramètres :**
+   - `pos_depart (Pos)` : La position de départ du mouvement.
+   - `pos_fin (Pos)` : La position finale après le déplacement.
+   
+   **Retour :**
+   Renvoie `True` si le mouvement est valide.
+    
+13. **pos_roi_joueur(self, joueur)**
     Retourne la position du roi pour le joueur spécifié.
     
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
     
     **Retour :**
-    La position du roi du joueur. 
+    La position (Pos) du roi du joueur. 
 
-13. **estEchec(self, joueur)**
+14. **est_echec(self, joueur)**
    Détermine si le joueur spécifié est en situation d'échec.
    
    **Paramètres :**
@@ -478,39 +497,53 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    **Retour :**
    Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
-14. **estEchecEtMat(self, joueur)**
+14. **est_echec_et_mat(self, joueur)**
    Détermine si le joueur spécifié est en situation d'échec et mat.
    
    **Paramètres :**
    - `joueur (Couleur)` : La couleur du joueur à vérifier.
    
    **Retour :**
-   Renvoie `true` si aucun mouvement du joueur ne le sort d'être en échec.
-   
+   Renvoie `True` si aucun mouvement du joueur ne le sort d'être en échec.
 
+   **Notes :** Avant de renvoyer `True` ou `False`, on peut utiliser la fonction `place_curseur_roi` de `Interface` pour afficher au joueur le fait que le roi est Echec et Mat.
 
+16. **isEmplacementDepartValide(self, pos)**
+    
+   Vérifie si l'emplacement de départ d'un mouvement est valide (i.e. une pièce occupe bien la case choisi, la pièce a la bonne couleur...)
 
+   **Paramètres :**
+   - `pos (Pos)` : La position de la case choisie.
 
+   **Retour :**
+   Renvoie `True` si l'emplacement de départ est valide. Sinon `False`.
 
-15. **tourJoueurCourant(jeu)**
+15. **tour_joueur_courant(simple)**
 Gère un tour complet du joueur courant.
 
 Le tour consiste à :
-    - Sélectionner un emplacement de départ.
-    - Afficher des curseurs sur les cases où la pièce peut faire un mouvement valide.
-    - Sélectionner un emplacement parmi les mouvements possibles.
-    - Bouger la pièce sur le plateau et mettre à jour l'interface.
-    La fonction doit être robuste par rapport aux actions de l'utilisateur. Si le joueur fait une mauvaise sélection à n'importe quel moment (choisit une case qui n'est pas de sa couleur, sélectionne un deuxième emplacement qui n'est pas un mouvement valide, etc.), recommencer la saisie.
 
+    1. Sélectionner un emplacement de départ (i.e. un pièce) via l'interface. On boucle tant que le joueur n'a pas choisi un emplacement de départ convenable (par exemple une case vide). 
+    2. On calcule les mouvements valides de la pièce. Afficher des curseurs sur les cases où la pièce peut faire un mouvement valide. 
+    3. Sélectionner un emplacement et vérifier qu'il est parmi les mouvements possibles. On pourra aussi faire en sorte que le joueur peut changer de pièce (i.e. si on clique sur un autre pièce du joueur, les marqueurs changent pour afficher les mouvements possibles de cette pièces).
+    4. Répéter 2 et 3 tant que cela n'est pas vrai. 
+    5. Bouger la pièce sur le plateau et mettre à jour l'interface (pièce mangée, enlèvement des marqueurs et rafraîchissement de l'interface).
+    
+La fonction doit être robuste par rapport aux actions de l'utilisateur. Si le joueur fait une mauvaise sélection à n'importe quel moment (choisit une case qui n'est pas de sa couleur, sélectionne un deuxième emplacement qui n'est pas un mouvement valide, etc.), recommencer la saisie.
 
-16. **isEmplacementDepartValide(self)**
-   Vérifie si l'emplacement de départ d'un mouvement est valide.
+**Indices :** Pour afficher / interagir avec l'interface, utiliser les méthodes données dans la classe Interface (lire la documentation aide !).
 
 17. **reset(self)**
+ 
    Réinitialise le plateau pour une nouvelle partie.
 
-18. **jouerPartie(self)**
-   Gère le déroulement d'une partie d'échecs, y compris les tours des joueurs et la vérification des conditions de fin de partie.
+19. **jouerPartie(self)**
+    
+   Gère le déroulement d'une partie d'échecs, y compris les tours des joueurs et la vérification des conditions de fin de partie. 
+
+   La fonction initialise le plateau et l'interface puis boucle tant qu'un joueur n'est pas échec et mat, avec un alternement des tours.
+
+   **Indices :** On pourra afficher en fin de boucle si le roi du joueur est en échec en utilisant "place_curseur_roi" de la classe Interface.
 
 
 ## 8. Barème /100 <a name="bareme"></a>
