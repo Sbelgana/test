@@ -56,7 +56,7 @@ L'objectif principal de ce laboratoire est d'implémenter un jeu d'échecs en ut
 
 ### Structure des classes
 <p align="center">
-    <img src="UML.svg">
+    <img src="images/UML.svg">
 </p>
 
 ### Description des classes
@@ -105,9 +105,9 @@ La classe `Pos`, essentielle dans notre modèle d'échecs en Python, sert à rep
 
 
 **Attributs de la Classe :**
-- `ligne` (int) : Représente la ligne de la position sur le plateau, avec 1 correspondant à la première ligne.
-- `colonne` (int) : Indique la colonne de la position, numérotée de 1 à 8, correspondant respectivement aux colonnes 'a' à 'h' dans le jeu d'échecs.
-- `get_emplacement` *Propriété*  : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
+- `ligne (int)`: Représente la ligne de la position sur le plateau, avec 1 correspondant à la première ligne.
+- `colonne (int)` : Indique la colonne de la position, numérotée de 1 à 8, correspondant respectivement aux colonnes 'a' à 'h' dans le jeu d'échecs.
+- `get_emplacement *Propriété*` : Propriété calculée qui combine les attributs `ligne` et `colonne` pour former une représentation alphanumérique de la position (par exemple, "b3").
 
 **Constructeur :**
 Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, elle extrait la ligne et la colonne à partir des indices dans la chaîne. Si `ligne_emplacement_ind` est un entier et `colonne` est fourni, ils sont directement utilisés comme ligne et colonne. Si `ligne_emplacement_ind` est un entier sans `colonne`, elle calcule la ligne et la colonne à partir de l'indice linéaire.
@@ -187,17 +187,19 @@ Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle pe
 
 ---
 
-### 5.2. Classe TypePiece <a name="typePiece"></a>
+### 5.2. Classe TypePiece <a name="typepiece"></a>
 
 La classe `TypePiece`, implémentée en tant qu'énumération (`Enum`), joue un rôle clé dans notre modèle d'échecs en Python en définissant les différents types de pièces utilisées dans le jeu. Cette structure permet une représentation claire et standardisée des pièces d'échecs, facilitant ainsi leur gestion et leur identification dans le code.
 
-Chaque type de pièce d'échecs est représenté par une valeur unique de l'énumération. Les types disponibles sont :
-  - `ROI` (valeur 1) : Représente le roi.
-  - `DAME` (valeur 2) : Représente la dame.
-  - `TOUR` (valeur 3) : Représente la tour.
-  - `FOU` (valeur 4) : Représente le fou.
-  - `CAVALIER` (valeur 5) : Représente le cavalier.
-  - `PION` (valeur 6) : Représente le pion.
+Chaque type de pièce d'échecs est représenté par une valeur unique de l'énumération. 
+
+**Membres de la Classe :**
+  - `ROI (valeur 1)` : Représente le roi.
+  - `DAME (valeur 2)` : Représente la dame.
+  - `TOUR (valeur 3)` : Représente la tour.
+  - `FOU (valeur 4)` : Représente le fou.
+  - `CAVALIER (valeur 5)` : Représente le cavalier.
+  - `PION (valeur 6)` : Représente le pion.
 
 **Méthode :**
 
@@ -214,9 +216,9 @@ Convertit l'identifiant numérique d'un type de pièce en une chaîne de caract�
 
 La classe `Couleur`, implémentée comme une énumération (`Enum`), est un composant essentiel de notre modèle d'échecs en Python. Elle est utilisée pour représenter de façon distincte les deux couleurs des joueurs dans le jeu d'échecs, à savoir Blanc et Noir. L'approche d'énumération assure une utilisation cohérente et standardisée des couleurs dans tout le code.
 
-Les membres de cette énumération sont les suivants :
-- `NOIR`: La couleur noire.
-- `BLANC`: La couleur blanche.
+**Membres de la Classe :**
+- `NOIR (valeur 0)`: La couleur noire.
+- `BLANC (valeur 1)`: La couleur blanche.
 
 ### Méthodes de Classe
 
@@ -247,13 +249,13 @@ Les membres de cette énumération sont les suivants :
 La classe `Piece` est une composante fondamentale de notre modèle de jeu d'échecs en Python. Elle est conçue pour représenter une pièce d'échecs individuelle, en combinant son type (par exemple, Roi, Dame, etc.) et sa couleur (Blanc ou Noir). Cette classe incarne l'approche de la programmation orientée objet en associant des attributs et des comportements spécifiques à chaque pièce du jeu.
 
 **Attributs de la Classe :**
-- `type_piece` (TypePiece) : Décrit le type de la pièce, en utilisant les valeurs de l'énumération `TypePiece`. Cela permet d'identifier facilement si la pièce est un Roi, une Dame, etc.
-- `couleur` (Couleur) : Indique la couleur de la pièce, soit Blanc soit Noir, en utilisant l'énumération `Couleur`. Cet attribut est crucial pour déterminer à quel joueur appartient la pièce.
+- `type_piece (TypePiece)` : Décrit le type de la pièce, en utilisant les valeurs de l'énumération `TypePiece`. Cela permet d'identifier facilement si la pièce est un Roi, une Dame, etc.
+- `couleur (Couleur)` : Indique la couleur de la pièce, soit Blanc soit Noir, en utilisant l'énumération `Couleur`. Cet attribut est crucial pour déterminer à quel joueur appartient la pièce.
 
 **Constructeur :**
 Initialise une nouvelle instance de la classe `Piece`.
-- `type_piece` (TypePiece) : Le type de la pièce (par exemple, TypePiece.ROI).
-- `couleur` (Couleur) : La couleur de la pièce (par exemple, Couleur.BLANC).
+- `type_piece (TypePiece)` : Le type de la pièce (par exemple, TypePiece.ROI).
+- `couleur (Couleur)` : La couleur de la pièce (par exemple, Couleur.BLANC).
 
 - **Méthodes :**
 
@@ -269,12 +271,12 @@ Cette classe n'a pas de méthodes, juste les deux attributs précédents !
 La classe `CasePlateau` joue un rôle crucial dans notre modèle d'échecs en Python. Elle représente une case individuelle sur le plateau de jeu. Chaque case peut contenir une pièce d'échecs ou être vide, ce qui est un aspect fondamental de la mécanique du jeu d'échecs.
 
 **Attributs de la Classe :**
-- `piece` (Piece, optionnel) : Cet attribut stocke une référence à une instance de la classe `Piece` si la case est occupée. Si la case est vide, `piece` est `None`. 
+- `piece (Piece, optionnel)` : Cet attribut stocke une référence à une instance de la classe `Piece` si la case est occupée. Si la case est vide, `piece` est `None`. 
 
 
 **Constructeur :**
 Initialise une nouvelle instance de la classe `CasePlateau`.
-- `piece` (Piece, optionnel) : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide. Défaut à `None`.
+- `piece (Piece, optionnel)` : La pièce à placer dans la case. Si aucune pièce n'est fournie, la case est considérée comme vide. Défaut à `None`.
 
 ### Méthodes
 
@@ -292,10 +294,12 @@ Détermine si la case est occupée par une pièce. Cette méthode est essentiell
 
 La classe `Plateau` est une composante clé de notre modèle d'échecs en Python. Elle représente le plateau de jeu d'échecs, qui est essentiellement un ensemble de cases (instances de `CasePlateau`). La classe gère l'ensemble du plateau, y compris le placement et le mouvement des pièces.
 
-**Attributs de la Classe :**
-- `matCases` (2D list of `CasePlateau`) : Une matrice 2D qui représente le plateau d'échecs, composée de 8 lignes et 8 colonnes.
+**Membres de la Classe :**
 - `NLIGNE = 8 (1x1 double, Constant)` : Cette constante spécifie le nombre de lignes sur le plateau d'échecs.
 - `NCOLONNE = 8 (1x1 double, Constant)` : Cette constante spécifie le nombre de colonnes sur le plateau d'échecs.
+
+**Attributs de la Classe :**
+- `matCases (2D list of CasePlateau)` : Une matrice 2D qui représente le plateau d'échecs, composée de 8 lignes et 8 colonnes.
 
 **Constructeur :**
 Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
@@ -306,22 +310,22 @@ Initialise un nouveau plateau de jeu en créant une grille 8x8 de cases vides.
 
 Ajoute une pièce à une position spécifique sur le plateau, i.e. à l'attribut `matCases`. La méthode place la pièce spécifiée à la position donnée sur le plateau. Si une pièce occupe déjà cette position, elle est remplacée par la nouvelle pièce.
    - **Paramètres :** 
-     - `piece` (Piece) : La pièce à ajouter.
-     - `pos` (Pos) : La position où placer la pièce.
+     - `piece (Piece)` : La pièce à ajouter.
+     - `pos (Pos)` : La position où placer la pièce.
 
 
 2. **bouge_piece(self, pos_depart, pos_fin)**
 
 Déplace une pièce d'une position de départ à une position de fin sur le plateau, i.e. à l'attribut `matCases`. Après le déplacement, la position de départ est laissée vide.
    - **Paramètres :** 
-     - `pos_depart` (Pos) : La position initiale de la pièce.
-     - `pos_fin` (Pos) : La position finale de la pièce.
+     - `pos_depart (Pos)` : La position initiale de la pièce.
+     - `pos_fin (Pos)` : La position finale de la pièce.
 
 3. **est_case_occupe(self, pos)**
 
 Vérifie si une case spécifique est occupée par une pièce.
    - **Paramètres :** 
-     - `pos` (Pos) : La position de la case à vérifier.
+     - `pos (Pos)` : La position de la case à vérifier.
       
    **Retour :**
    Renvoie vrai si la case est occupée, sinon renvoie faux. 
@@ -346,7 +350,7 @@ Crée et retourne une liste de dictionnaires des pièces actuellement présentes
 Retourne la pièce située à une position spécifiée sur le plateau.
 
   **Paramètres :** 
-     - `pos` (Pos) : La position à vérifier sur le plateau.
+     - `pos (Pos)` : La position à vérifier sur le plateau.
    
    **Retour :**
    Renvoie la pièce située à la position spécifiée.
@@ -366,9 +370,9 @@ La classe `JeuEchec` est le cœur de notre application de jeu d'échecs en Pytho
 - pour le roi (suivant le cas), le mouvement ne le met pas en échec.
 
 **Attributs de la Classe :**
-- `plateau` (Plateau) : Représente le plateau de jeu.
-- `interface` (Interface) : L'interface graphique du jeu.
-- `joueurCourant` (Couleur) : Indique le joueur qui doit jouer, initialisé à Blanc.
+- `plateau (Plateau)` : Représente le plateau de jeu.
+- `interface (Interface)` : L'interface graphique du jeu.
+- `joueurCourant (Couleur)` : Indique le joueur qui doit jouer, initialisé à Blanc.
 
 **Constructeur :**
 Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le joueur courant.
@@ -380,8 +384,8 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 Vérifie si une case est occupée par une pièce appartenant au joueur spécifié.
 
   **Paramètres :** 
-     - `pos` (Pos) : Position de la case à vérifier.
-     - `joueur` (Couleur) : Joueur (Couleur) à vérifier.
+     - `pos (Pos)` : Position de la case à vérifier.
+     - `joueur (Couleur)` : Joueur (Couleur) à vérifier.
    
    **Retour :**
    Renvoie `True` si la pièce existe à la position et est de la couleur du joueur. 
@@ -390,8 +394,8 @@ Vérifie si une case est occupée par une pièce appartenant au joueur spécifi�
 Vérifie si une case est occupée par une pièce appartenant à l'adversaire du joueur spécifié.
    
    **Paramètres :**
-     - `pos` (Pos) : Position de la case à vérifier.
-     - `joueur` (Couleur) : Joueur (Couleur) à vérifier.
+     - `pos (Pos)` : Position de la case à vérifier.
+     - `joueur (Couleur)` : Joueur (Couleur) à vérifier.
    
    **Retour :**
    Renvoie `True` si la pièce existe à la position et est de la couleur du joueur inverse. 
@@ -402,7 +406,7 @@ Vérifie si une case est occupée par une pièce appartenant à l'adversaire du 
 Calcule et retourne une liste des mouvements valides pour un cavalier à une position donnée.
    
    **Paramètres :**
-   - `pos` (Pos) : La position du cavalier.
+   - `pos (Pos)` : La position du cavalier.
    
    **Retour :**
    La liste des mouvements possibles du cavalier à la position donnée.
@@ -413,7 +417,7 @@ Calcule et retourne une liste des mouvements valides pour un cavalier à une pos
 Calcule et retourne une liste des mouvements valides pour un fou à une position donnée.
    
    **Paramètres :**
-   - `pos` (Pos) : : La position du fou.
+   - `pos (Pos)` : : La position du fou.
    
    **Retour :**
    La liste des mouvements possibles du fou à la position donnée.
@@ -424,7 +428,7 @@ Calcule et retourne une liste des mouvements valides pour un fou à une position
 Calcule et retourne une liste des mouvements valides pour une tour à une position donnée.
    
    **Paramètres :**
-    - `pos` (Pos) : La position de la tour.
+    - `pos (Pos)` : La position de la tour.
    
    **Retour :**
     La liste des mouvements possibles de la tour à la position donnée.
@@ -434,7 +438,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
    
    **Paramètres :**
-   - `pos` (Pos) : : La position de la dame.
+   - `pos (Pos)` : : La position de la dame.
    
    **Retour :**
    La liste des mouvements possibles de la dame à la position donnée. 
@@ -444,8 +448,8 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     Calcule et retourne une liste des mouvements valides pour un roi à une position donnée. Si `juste_mouvement` est `True`, retourne une liste de mouvements du roi en ne tenant pas compte de potentiels mises en échec. Si `juste_mouvement` est `False`, vérifier que la position ne conduit pas à un échec.
     
     **Paramètres :**
-    - `pos` (Pos) : La position du roi.
-    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
+    - `pos (Pos)` : La position du roi.
+    - `juste_mouvement (Bool)`: Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
     
     **Retour :**
     La liste des mouvements possibles du roi à la position donnée.
@@ -457,7 +461,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
     
     **Paramètres :**
-    - `pos` (Pos) : La position du pion.
+    - `pos (Pos)` : La position du pion.
     
     **Retour :**
     La liste des mouvements possibles du pion à la position donnée. 
@@ -467,7 +471,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     
     **Paramètres :**
     - `pos (Pos)` : La position de la pièce.
-    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
+    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
     
     **Retour :**
     La liste des mouvements possibles de la pièce à la position donnée.
@@ -477,7 +481,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
-    - `juste_mouvement` (Bool): Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
+    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
     
     **Retour :**
     La liste des mouvements possibles de toutes les pièces du joueur. 
