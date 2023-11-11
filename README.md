@@ -187,7 +187,7 @@ Cette méthode surcharge l'opérateur d'addition (+) pour les positions. Elle pe
 
 ---
 
-### 5.2. Classe TypePiece <a name="typePiece"></a>
+### 5.2. Classe TypePiece <a name="typepiece"></a>
 
 La classe `TypePiece`, implémentée en tant qu'énumération (`Enum`), joue un rôle clé dans notre modèle d'échecs en Python en définissant les différents types de pièces utilisées dans le jeu. Cette structure permet une représentation claire et standardisée des pièces d'échecs, facilitant ainsi leur gestion et leur identification dans le code.
 
