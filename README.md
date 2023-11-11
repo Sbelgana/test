@@ -411,6 +411,9 @@ Calcule et retourne une liste des mouvements valides pour un cavalier à une pos
    **Retour :**
    La liste des mouvements possibles du cavalier à la position donnée.
 
+<p align="center">
+    <img src="images/Algo_01.svg">
+</p>
 
 4. **liste_mouvement_fou(self, pos)**
 
@@ -422,6 +425,9 @@ Calcule et retourne une liste des mouvements valides pour un fou à une position
    **Retour :**
    La liste des mouvements possibles du fou à la position donnée.
 
+<p align="center">
+    <img src="images/Algo_02.svg">
+</p>
 
 5. **liste_mouvement_tour(self, pos)**
 
@@ -433,6 +439,10 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    **Retour :**
     La liste des mouvements possibles de la tour à la position donnée.
 
+<p align="center">
+    <img src="images/Algo_03.svg">
+</p>
+
     
 6. **liste_mouvement_dame(self, pos)**
    Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
@@ -442,6 +452,10 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    
    **Retour :**
    La liste des mouvements possibles de la dame à la position donnée. 
+
+<p align="center">
+    <img src="images/Algo_04.svg">
+</p>
 
 
 7. **liste_mouvement_roi(self, pos, juste_mouvement=False)**
@@ -457,6 +471,10 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     **Indices :**
     Dans le cas où `juste_mouvement` est `False`, il faut donc vérifier que les mouvements du roi ne le mettent pas en échec. Un moyen simple est de "simuler" le mouvement et de vérifier ce qu'il se passe (échec ou non). Si aucun échec, le mouvement est bon, sinon, on sait que l'on ne peut pas faire ce mouvement.
 
+<p align="center">
+    <img src="images/Algo_05.svg">
+</p>
+
 9. **liste_mouvement_pion(self, pos)**
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
     
@@ -466,27 +484,12 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     **Retour :**
     La liste des mouvements possibles du pion à la position donnée. 
 
-10. **liste_mouvement_valide_pos(self, pos, juste_mouvement=False)**
-    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
-    
-    **Paramètres :**
-    - `pos (Pos)` : La position de la pièce.
-    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
-    
-    **Retour :**
-    La liste des mouvements possibles de la pièce à la position donnée.
-    
-11. **liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)**
-    Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
-    
-    **Paramètres :**
-    - `joueur (Couleur)` : La couleur du joueur à vérifier.
-    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
-    
-    **Retour :**
-    La liste des mouvements possibles de toutes les pièces du joueur. 
+<p align="center">
+    <img src="images/Algo_06.svg">
+</p>
+'
 
-12. **est_mouvement_valide(self, pos_depart, pos_fin)**
+10. **est_mouvement_valide(self, pos_depart, pos_fin)**
    Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
 
    **Paramètres :**
@@ -496,7 +499,7 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
    **Retour :**
    Renvoie `True` si le mouvement est valide.
     
-13. **pos_roi_joueur(self, joueur)**
+11. **pos_roi_joueur(self, joueur)**
     Retourne la position du roi pour le joueur spécifié.
     
     **Paramètres :**
@@ -504,6 +507,34 @@ Calcule et retourne une liste des mouvements valides pour une tour à une positi
     
     **Retour :**
     La position (Pos) du roi du joueur. 
+
+<p align="center">
+    <img src="images/Algo_07.svg">
+</p>
+
+12. **liste_mouvement_valide_pos(self, pos, juste_mouvement=False)**
+    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
+    
+    **Paramètres :**
+    - `pos (Pos)` : La position de la pièce.
+    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
+    
+    **Retour :**
+    La liste des mouvements possibles de la pièce à la position donnée.
+    
+13. **liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)**
+    Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
+    
+    **Paramètres :**
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
+    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Défaut à `False`.
+    
+    **Retour :**
+    La liste des mouvements possibles de toutes les pièces du joueur.
+
+<p align="center">
+    <img src="images/Algo_08.svg">
+</p>
 
 14. **est_echec(self, joueur)**
    Détermine si le joueur spécifié est en situation d'échec.
