@@ -414,20 +414,29 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 3. <ins>  liste_mouvement_cavalier(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un cavalier à une position donnée.
-   
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles du cavalier en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_01.svg">
+    </p>
+
     **Paramètres :**
     - `pos (Pos)` : La position du cavalier.
    
     **Retour :**
     La liste des mouvements possibles du cavalier à la position donnée.
 
-<p align="center">
-    <img src="images/Algo_01.svg">
-</p>
 
-4. <ins>  liste_mouvement_fou(self, pos)  </ins>  
+5. <ins>  liste_mouvement_fou(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un fou à une position donnée.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles du fou en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_02.svg">
+    </p>
    
     **Paramètres :**
     - `pos (Pos)` : : La position du fou.
@@ -435,14 +444,17 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles du fou à la position donnée.
 
-<p align="center">
-    <img src="images/Algo_02.svg">
-</p>
 
 
 5. <ins>  liste_mouvement_tour(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour une tour à une position donnée.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles de la tour en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_03.svg">
+    </p>
    
     **Paramètres :**
     - `pos (Pos)` : La position de la tour.
@@ -450,14 +462,16 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de la tour à la position donnée.
 
-<p align="center">
-    <img src="images/Algo_03.svg">
-</p>
-
     
 6. <ins>  liste_mouvement_dame(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour une dame à une position donnée.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles de la dame en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_04.svg">
+    </p>
    
     **Paramètres :**
     - `pos (Pos)` : : La position de la dame.
@@ -465,14 +479,18 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de la dame à la position donnée. 
 
-<p align="center">
-    <img src="images/Algo_04.svg">
-</p>
+
 
 
 7. <ins>  liste_mouvement_roi(self, pos, juste_mouvement=False)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un roi à une position donnée. Si `juste_mouvement` est `True`, retourne une liste de mouvements du roi en ne tenant pas compte de potentiels mises en échec. Si `juste_mouvement` est `False`, vérifier que la position ne conduit pas à un échec.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles du roi en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_05.svg">
+    </p>
     
     **Paramètres :**
     - `pos (Pos)` : La position du roi.
@@ -484,13 +502,16 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Indices :**
     Dans le cas où `juste_mouvement` est `False`, il faut donc vérifier que les mouvements du roi ne le mettent pas en échec. Un moyen simple est de "simuler" le mouvement et de vérifier ce qu'il se passe (échec ou non). Si aucun échec, le mouvement est bon, sinon, on sait que l'on ne peut pas faire ce mouvement.
 
-<p align="center">
-    <img src="images/Algo_05.svg">
-</p>
 
 9. <ins>  liste_mouvement_pion(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer tous les mouvements possibles du pion en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_06.svg">
+    </p>
     
     **Paramètres :**
     - `pos (Pos)` : La position du pion.
@@ -517,6 +538,12 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 11. <ins>  pos_roi_joueur(self, joueur)  </ins>  
 
     Retourne la position du roi pour le joueur spécifié.
+
+    L'implémentation de cette méthode doit être basée sur l'algorithme détaillé dans la figure ci-dessous. Cet algorithme décrit une méthode systématique pour localiser le roi d'un joueur donné sur le plateau, en tenant compte des spécificités de la disposition des pièces et des règles du jeu.
+
+    <p align="center">
+        <img src="images/Algo_07.svg">
+    </p>
     
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
@@ -524,9 +551,6 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La position (Pos) du roi du joueur. 
 
-<p align="center">
-    <img src="images/Algo_07.svg">
-</p>
 
 12. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
 
@@ -542,6 +566,12 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 13. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
+
+    L'implémentation de cette méthode doit suivre les étapes de l'algorithme illustré dans la figure ci-dessous. Cet algorithme fournit une procédure détaillée pour évaluer de manière exhaustive tous les mouvements possibles des pièces d'un joueur donné, tout en considérant les règles spécifiques du jeu, y compris la protection du roi contre l'échec.
+
+    <p align="center">
+        <img src="images/Algo_08.svg">
+    </p>
     
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
@@ -550,9 +580,6 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de toutes les pièces du joueur.
 
-<p align="center">
-    <img src="images/Algo_08.svg">
-</p>
 
 14. <ins>  est_echec(self, joueur)  </ins>  
 
@@ -576,7 +603,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
     **Notes :** Avant de renvoyer `True` ou `False`, on peut utiliser la fonction `place_curseur_roi` de `Interface` pour afficher au joueur le fait que le roi est Echec et Mat.
 
-16. <ins>  isEmplacementDepartValide(self, pos)  </ins>  
+15. <ins>  isEmplacementDepartValide(self, pos)  </ins>  
     
     Vérifie si l'emplacement de départ d'un mouvement est valide (i.e. une pièce occupe bien la case choisi, la pièce a la bonne couleur...)
 
@@ -586,7 +613,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `True` si l'emplacement de départ est valide. Sinon `False`.
 
-15. <ins>  tour_joueur_courant(simple)  </ins>  
+16. <ins>  tour_joueur_courant(simple)  </ins>  
     Gère un tour complet du joueur courant.
 
     Le tour consiste à :
@@ -601,7 +628,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     
     **Indices :** Pour afficher / interagir avec l'interface, utiliser les méthodes données dans la classe Interface (lire la documentation aide !).
 
-## 8. Barème /100 <a name="bareme"></a>
+## 6. Barème /100 <a name="bareme"></a>
 
 |**Nom des fonctions**|**Nombre de points attribuer**|
 | :- | :- |  
