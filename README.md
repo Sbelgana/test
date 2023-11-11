@@ -177,7 +177,7 @@ Initialise une instance de `Pos`. Si `ligne_emplacement_ind` est une chaîne, el
 
 
 
-7. <ins> **__str__(self, )** </ins> 
+7. <ins> **__str__(self)** </ins> 
 
     Cette méthode surcharge l'opérateur de d'affichage pour les positions. Fournit une représentation textuelle de l'instance `Pos`, incluant les informations sur la ligne, la colonne et l'emplacement alphanumérique. 
 
