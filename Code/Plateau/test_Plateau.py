@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from Plateau import* 
+from Plateau import * 
 
 class TestPlateau(unittest.TestCase):
 

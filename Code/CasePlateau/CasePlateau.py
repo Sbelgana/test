@@ -2,7 +2,7 @@ import sys
 import os
 
 
-chemin_dossier_1 = './Code/Piece'
+chemin_dossier_1 = os.path.dirname(os.path.realpath(__file__)) + '/../Piece'
 
 
 

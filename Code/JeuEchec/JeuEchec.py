@@ -1,8 +1,8 @@
 import sys
 import os
 
-chemin_dossier_1 = './Code/Plateau'
-chemin_dossier_2 = './Code/Interface'
+chemin_dossier_1 = os.path.dirname(os.path.realpath(__file__)) + '/../Plateau'
+chemin_dossier_2 = os.path.dirname(os.path.realpath(__file__)) + '/../Interface'
 
 
 if chemin_dossier_1 not in sys.path:

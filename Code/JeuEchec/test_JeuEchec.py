@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from JeuEchec import*  
+from JeuEchec import *  
 
 class TestJeuEchec(unittest.TestCase):
 

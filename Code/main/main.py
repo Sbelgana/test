@@ -2,11 +2,10 @@ import sys
 import os
 
 
-chemin_dossier_1 = './Code/JeuEchec'
+chemin_dossier_1 = os.path.dirname(os.path.realpath(__file__)) + '/../JeuEchec'
 
 if chemin_dossier_1 not in sys.path:
     sys.path.append(chemin_dossier_1)
-
 
 from JeuEchec import*
 

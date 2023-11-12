@@ -1,8 +1,8 @@
 import sys
 import os
 
-chemin_dossier_1 = './Code/Pos'
-chemin_dossier_2 = './Code/CasePlateau'
+chemin_dossier_1 = os.path.dirname(os.path.realpath(__file__)) + '/../Pos'
+chemin_dossier_2 = os.path.dirname(os.path.realpath(__file__)) + '/../CasePlateau'
 
 
 

@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from TypePiece import*   
+from TypePiece import *   
 
 class TestTypePiece(unittest.TestCase):
 

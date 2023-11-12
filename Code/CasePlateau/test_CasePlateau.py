@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from CasePlateau import*  
+from CasePlateau import *  
 
 class TestCasePlateau(unittest.TestCase):
 
