@@ -78,7 +78,7 @@ class JeuEchec:
             for j in range(1, self.plateau.NCOLONNES + 1):
                 pos_piece = Pos(i, j)
                 if self.plateau.est_case_occupe(pos_piece) and self.est_case_joueur(pos_piece, joueur):
-                    liste_mouvements_piece = self.liste_mouvement_valide_pos(pos_piece)
+                    liste_mouvements_piece = self.liste_mouvement_pos(pos_piece)
                     for mouvement_piece in liste_mouvements_piece:
                         if not self.est_en_echec_apres_mouvement(pos_piece, mouvement_piece, joueur):
                             return False
