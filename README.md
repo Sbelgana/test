@@ -621,17 +621,17 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 | **Nom de la classe** | **Méthode** | **Points attribués** |
 | :- | :- | :-: |
-| **Piece** | | |
+| **Piece** | |3 |
 |  | `__init__` | 3 |
-| **TypePiece** | | |
+| **TypePiece** | | 5|
 |  | `vers_chaine` | 5 |
-| **CasePlateau** | | |
+| **CasePlateau** | |5 |
 |  | `__init__` | 2 |
 |  | `est_occupe` | 3 |
-| **Couleur** | | |
+| **Couleur** | |7 |
 |  | `__invert__` | 3.5 |
 |  | `vers_chaine` | 3.5 |
-| **Pos** | | |
+| **Pos** | | 18|
 |  | `__init__` | 4 |
 |  | `get_emplacement` | 2 |
 |  | `__add__` | 2 |
@@ -640,7 +640,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 |  | `est_dans_liste_pos` | 3 |
 |  | `__str__` | 1 |
 |  | `__eq__` | 1 |
-| **Plateau** | | |
+| **Plateau** | |16 |
 |  | `__init__` | 3 |
 |  | `ajoute_piece` | 1 |
 |  | `bouge_piece` | 3 |
@@ -648,18 +648,18 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 |  | `init_partie` | 4 |
 |  | `liste_piece` | 3 |
 |  | `piece_a_position` | 1 |
-| **JeuEchec** | | |
+| **JeuEchec** | | 46 |
 |  | `__init__` | 2 |
 |  | `est_case_joueur` | 2 |
 |  | `est_case_joueur_inverse` | 2 |
 |  | `liste_mouvement_cavalier` | 3 |
-|  | `liste_mouvement_fou` | 4 |
-|  | `liste_mouvement_tour` | 4 |
+|  | `liste_mouvement_fou` | 3 |
+|  | `liste_mouvement_tour` | 3 |
 |  | `liste_mouvement_dame` | 4 |
-|  | `liste_mouvement_roi` | 5 |
+|  | `liste_mouvement_roi` | 4 |
 |  | `liste_mouvement_pion` | 4 |
 |  | `est_mouvement_valide` | 2 |
-|  | `liste_mouvement_valide_joueur` | 4 |
+|  | `liste_mouvement_valide_joueur` | 3 |
 |  | `liste_mouvement_valide_pos` | 2 |
 |  | `pos_roi_joueur` | 2 |
 |  | `est_echec` | 2 |
