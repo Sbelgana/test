@@ -636,7 +636,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 | Piece | 3 |  
 | Couleur | 7 |  
 | CasePlateau | 5 |  
-| Total | 100 |  
+| Total | /100 |  
 
 
 
