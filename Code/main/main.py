@@ -1,10 +1,13 @@
-from Couleur import*
-from CasePlateau import*
-from Piece import*
-from Pos import*
-from TypePiece import*
-from Plateau import*
-from Interface import*
+import sys
+import os
+
+
+chemin_dossier_1 = './Code/JeuEchec'
+
+if chemin_dossier_1 not in sys.path:
+    sys.path.append(chemin_dossier_1)
+
+
 from JeuEchec import*
 
 def jouer_partie(jeu):

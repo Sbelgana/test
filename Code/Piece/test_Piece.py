@@ -22,9 +22,11 @@ class TestPiece(unittest.TestCase):
         self.assertTrue(hasattr(piece, 'couleur'))
 
 if __name__ == '__main__':
-    if not os.path.exists('logs'):
-        os.mkdir('logs')
-    with open('logs/tests_results_Piece.txt', 'w') as f:
+    if not os.path.exists('Code/Piece/logs'):
+        os.mkdir('Code/Piece/logs')
+    with open('Code/Piece/logs/tests_results_Piece.txt', 'w') as f:
         loader = unittest.TestLoader()
         suite = loader.loadTestsFromModule(sys.modules[__name__])
         unittest.TextTestRunner(f, verbosity=2).run(suite)
+
+

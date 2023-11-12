@@ -1,12 +1,19 @@
-from Couleur import*
-from CasePlateau import*
-from Piece import*
-from Pos import*
-from TypePiece import*
+import sys
+import os
+
+chemin_dossier_1 = './Code/Plateau'
+chemin_dossier_2 = './Code/Interface'
+
+
+if chemin_dossier_1 not in sys.path:
+    sys.path.append(chemin_dossier_1)
+if chemin_dossier_2 not in sys.path:
+    sys.path.append(chemin_dossier_2)
+
+
 from Plateau import*
 from Interface import*
 
-import sys
 
 class JeuEchec:
 
@@ -36,6 +43,8 @@ class JeuEchec:
 
     def liste_mouvement_pion(self, pos):
         pass
+
+
 
     def est_mouvement_valide(self, pos_depart, pos_fin):
         pass
@@ -127,3 +136,4 @@ class JeuEchec:
                     self.interface.affiche_liste_piece(self.plateau.liste_piece())
 
                 flag = False
+

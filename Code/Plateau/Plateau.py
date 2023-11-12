@@ -1,11 +1,19 @@
-from Couleur import*
-from CasePlateau import*
-from Piece import*
-from Pos import*
-from TypePiece import*
-
+import sys
 import os
-import pygame
+
+chemin_dossier_1 = './Code/Pos'
+chemin_dossier_2 = './Code/CasePlateau'
+
+
+
+if chemin_dossier_1 not in sys.path:
+    sys.path.append(chemin_dossier_1)
+if chemin_dossier_2 not in sys.path:
+    sys.path.append(chemin_dossier_2)
+
+from Pos import*
+from CasePlateau import*
+
 
 class Plateau:
     NLIGNES = 8
@@ -25,6 +33,7 @@ class Plateau:
 
     def init_partie(self):
         pass
+
 
     def liste_piece(self):
         pass

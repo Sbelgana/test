@@ -6,6 +6,7 @@ class Pos:
     def get_emplacement(self):
         pass
 
+
     def __add__(self, addPos):
         pass
 
@@ -19,12 +20,13 @@ class Pos:
     @staticmethod
     def est_dans_liste_pos(pos, listePos):
         pass
-    
+
     def __str__(self):
         pass
 
     def __eq__(self, pos):
         pass
 
+    #Fournie
     def __hash__(self):
-        pass
+        return hash((self.ligne, self.colonne))

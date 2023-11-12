@@ -16,9 +16,10 @@ class TestCouleur(unittest.TestCase):
         self.assertEqual(Couleur.vers_chaine(Couleur.NOIR), 'Noir')
 
 if __name__ == '__main__':
-    if not os.path.exists('logs'):
-        os.mkdir('logs')
-    with open('logs/tests_results_Couleur.txt', 'w') as f:
+    if not os.path.exists('Code/Couleur/logs'):
+        os.mkdir('Code/Couleur/logs')
+    with open('Code/Couleur/logs/tests_results_Couleur.txt', 'w') as f:
         loader = unittest.TestLoader()
         suite = loader.loadTestsFromModule(sys.modules[__name__])
         unittest.TextTestRunner(f, verbosity=2).run(suite)
+

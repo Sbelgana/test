@@ -10,4 +10,3 @@ class TypePiece(Enum):
 
     def vers_chaine(self):
          pass
-

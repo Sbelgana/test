@@ -155,11 +155,12 @@ class TestPlateau(unittest.TestCase):
         self.assertEqual(len(plateau.liste_piece()), 32)
         self.assertTrue(any(p['emplacement'] == 'a4' for p in plateau.liste_piece()))
 
-
 if __name__ == '__main__':
-    if not os.path.exists('logs'):
-        os.mkdir('logs')
-    with open('logs/tests_results_Plateau.txt', 'w') as f:
+    if not os.path.exists('Code/Plateau/logs'):
+        os.mkdir('Code/Plateau/logs')
+    with open('Code/Plateau/logs/tests_results_Plateau.txt', 'w') as f:
         loader = unittest.TestLoader()
         suite = loader.loadTestsFromModule(sys.modules[__name__])
         unittest.TextTestRunner(f, verbosity=2).run(suite)
+
+
