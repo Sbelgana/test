@@ -44,15 +44,13 @@ class JeuEchec:
     def liste_mouvement_pion(self, pos):
         pass
 
-
-
-    def liste_mouvement_valide(self, pos_depart, liste_move):
+    def est_mouvement_valide(self, pos_depart, pos_fin):
         pass
 
-    def liste_mouvement_joueur(self, joueur, juste_mouvement=False):
+    def liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False):
         pass
 
-    def liste_mouvement_pos(self, pos, juste_mouvement=False):
+    def liste_mouvement_valide_pos(self, pos, juste_mouvement=False):
         pass
 
     def pos_roi_joueur(self, joueur):
@@ -97,48 +95,4 @@ class JeuEchec:
         self.plateau.bouge_piece(pos_fin, pos_depart)
         self.plateau.ajoute_piece(piece_capturee, pos_fin)
         return echec
-
-    def isEmplacementDepartValide(self, pos):
-        
-        return self.plateau.est_case_occupe(pos) and self.plateau.matCases[pos.ligne- 1][pos.colonne- 1].piece.couleur == self.joueurCourant and \
-                (not(self.est_echec(self.joueurCourant)) or self.plateau.matCases[pos.ligne - 1][pos.colonne - 1].piece.type == TypePiece.ROI)
-
-    def tour_joueur_courant(self):
-        # Sélection de la pièce à déplacer
-        flag = True
-        while flag:
-            emplacement_depart = self.interface.saisir_emplacement()
-            pos_depart = Pos(emplacement_depart)
-            if self.isEmplacementDepartValide(pos_depart):
-                flag = False
-
-        # Sélection de la destination et déplacement de la pièce
-        flag = True
-        while flag:
-            valid_moves = self.liste_mouvement_valide(pos_depart, self.liste_mouvement_pos(pos_depart))
-            for move in valid_moves:
-                self.interface.place_curseur(move.get_emplacement)
-            self.interface.affiche_liste_piece()
-
-            emplacement_fin = self.interface.saisir_emplacement()
-            pos_fin = Pos(emplacement_fin)
-            
-            if emplacement_depart != emplacement_fin:
-                if Pos.est_dans_liste_pos(pos_fin, valid_moves):
-                   flag = False
-                elif self.plateau.est_case_occupe(pos_fin) and self.plateau.matCases[pos_fin.ligne - 1][pos_fin.colonne - 1].piece.couleur == self.joueurCourant:
-                    self.interface.enleve_curseur()
-                    emplacement_depart = emplacement_fin
-                    pos_depart = Pos(emplacement_depart)            
-
-        # Ajoutez piece mangee dans interface
-        self.interface.piece_mangee(emplacement_fin)
-        # On bouge la pièce
-        self.plateau.bouge_piece(pos_depart, pos_fin)   
-        # Enlève le curseur
-        self.interface.enleve_curseur()             
-        # Vérifiez si le pion atteint la dernière rangée pour la promotion
-        self.promotePawn(pos_fin)
-        # Update board
-        self.interface.affiche_liste_piece(self.plateau.liste_piece())
 
