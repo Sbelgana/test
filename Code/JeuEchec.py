@@ -41,13 +41,17 @@ class JeuEchec:
     def liste_mouvement_pion(self, pos):
         pass
 
+<<<<<<< HEAD
     def liste_mouvement_valide(self, pos_depart, liste_move):
+=======
+    def est_mouvement_valide(self, pos_depart, pos_fin):
+>>>>>>> dc431272b00d641c17b6de3ed872818d4ceb4feb
         pass
 
-    def liste_mouvement_joueur(self, joueur, juste_mouvement=False):
+    def liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False):
         pass
 
-    def liste_mouvement_pos(self, pos, juste_mouvement=False):
+    def liste_mouvement_valide_pos(self, pos, juste_mouvement=False):
         pass
 
     def pos_roi_joueur(self, joueur):
@@ -57,7 +61,17 @@ class JeuEchec:
         pass
 
     def est_en_echec_apres_mouvement(self, pos_depart, pos_fin, joueur):
+<<<<<<< HEAD
         pass
 
     def est_echec_et_mat(self, joueur):
         pass
+=======
+        piece_capturee = self.plateau.piece_a_position(pos_fin)
+        self.plateau.bouge_piece(pos_depart, pos_fin)
+        echec = self.est_echec(joueur)
+        self.plateau.bouge_piece(pos_fin, pos_depart)
+        self.plateau.ajoute_piece(piece_capturee, pos_fin)
+        return echec
+
+>>>>>>> dc431272b00d641c17b6de3ed872818d4ceb4feb
