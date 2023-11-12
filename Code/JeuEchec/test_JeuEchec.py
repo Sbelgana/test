@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from JeuEchec import *  
+from JeuEchec import*  
 
 class TestJeuEchec(unittest.TestCase):
 
@@ -387,6 +387,108 @@ class TestJeuEchec(unittest.TestCase):
         self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.NOIR), pos_pion)
         mouvements_pion = self.jeu.liste_mouvement_valide_pos(pos_pion)
         self.assertIn(Pos(3, 2), mouvements_pion)
+    
+    def test_est_echec(self):
+        self.jeu.plateau.init_partie()
+
+        # Placer le roi blanc en position d'échec
+        pos_roi_blanc = Pos(5, 5)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.BLANC), pos_roi_blanc)
+
+        # Placer une tour noire de manière à mettre le roi blanc en échec
+        pos_tour_noire = Pos(5, 8)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.TOUR, Couleur.NOIR), pos_tour_noire)
+
+        # Vérifier que le roi blanc est en échec
+        self.assertTrue(self.jeu.est_echec(Couleur.BLANC))
+
+        # Bouger le roi blanc hors de la ligne de la tour
+        pos_roi_blanc_safe = Pos(6, 5)
+        self.jeu.plateau.bouge_piece(pos_roi_blanc, pos_roi_blanc_safe)
+
+        # Vérifier que le roi blanc n'est plus en échec
+        self.assertFalse(self.jeu.est_echec(Couleur.BLANC))
+
+    def test_est_en_echec_apres_mouvement(self):
+        self.jeu.plateau.init_partie()
+
+        # Placer le roi blanc
+        pos_roi_blanc = Pos(5, 5)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.BLANC), pos_roi_blanc)
+
+        # Placer une tour noire
+        pos_tour_noire = Pos(5, 8)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.TOUR, Couleur.NOIR), pos_tour_noire)
+
+        # Tester un mouvement qui ne met pas le roi en échec
+        pos_pion_blanc = Pos(6, 5)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), pos_pion_blanc)
+        mouvement_safe = self.jeu.est_en_echec_apres_mouvement(pos_pion_blanc, Pos(6, 6), Couleur.BLANC)
+        self.assertTrue(mouvement_safe)
+
+        # Tester un mouvement qui met le roi en échec
+        mouvement_danger = self.jeu.est_en_echec_apres_mouvement(pos_pion_blanc, Pos(5, 5), Couleur.BLANC)
+        self.assertFalse(mouvement_danger)
+    
+    def test_est_echec_et_mat(self):
+        self.jeu.plateau = Plateau()
+
+        # Scénario 1: Échec et mat
+        # Placer le roi blanc dans une position où il est en échec et mat
+        pos_roi_blanc = Pos("d1")
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.BLANC), pos_roi_blanc)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.TOUR, Couleur.NOIR), Pos("a1"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.DAME, Couleur.NOIR), Pos("d3"))
+
+        self.assertTrue(self.jeu.est_echec_et_mat(Couleur.BLANC))
+
+        # Scénario 2: Échec mais pas mat
+        # Placer une pièce qui peut bloquer l'échec
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.CAVALIER, Couleur.BLANC), Pos("f2"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.FOU, Couleur.BLANC), Pos("b1"))
+        self.assertFalse(self.jeu.est_echec_et_mat(Couleur.BLANC))
+
+    def test_echec_et_mat_evite_par_sacrifice(self):
+        self.jeu.plateau = Plateau()
+        pos_roi_blanc = Pos("e1")
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.BLANC), pos_roi_blanc)
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.DAME, Couleur.NOIR), Pos("e8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("e2"))
+        # Le pion blanc se sacrifie pour bloquer la dame noire
+        self.assertFalse(self.jeu.est_echec_et_mat(Couleur.BLANC))
+
+    def test_echec_et_mat_scenario_1(self):
+        self.jeu.plateau = Plateau()
+    
+        # Configuration du plateau basée sur img_01.png
+        # Pièces noires
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.CAVALIER, Couleur.NOIR), Pos("b8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.NOIR), Pos("e8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.FOU, Couleur.NOIR), Pos("f8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.TOUR, Couleur.NOIR), Pos("h8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.NOIR), Pos("a7"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.NOIR), Pos("f7"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.NOIR), Pos("g7"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.DAME, Couleur.NOIR), Pos("e6")) 
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.NOIR), Pos("e5")) 
+
+
+        # Pièces blanches
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.TOUR, Couleur.BLANC), Pos("d8"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.FOU, Couleur.BLANC), Pos("g5"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("e4"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("a2"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("b2"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("c2")) 
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("f2"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("g2"))
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.PION, Couleur.BLANC), Pos("h2"))        
+        self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.BLANC), Pos("c1"))
+
+
+        # La position actuelle est censée être un échec et mat pour les Noirs
+        self.assertTrue(self.jeu.est_echec_et_mat(Couleur.NOIR))
+
 
 if __name__ == '__main__':
     if not os.path.exists('Code/JeuEchec/logs'):
