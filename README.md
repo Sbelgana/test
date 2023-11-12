@@ -627,16 +627,44 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 ## 6. Barème /100 <a name="bareme"></a>
 
-|**Nom de la classe**|**Nombre de points attribués**|
-| :- | :- |  
-|JeuEchec|40|
-| Plateau | 20 |  
-| Pos | 20 |  
-| TypePiece | 5 |  
-| Piece | 3 |  
-| Couleur | 7 |  
-| CasePlateau | 5 |  
-| Total | /100 |  
+| **Nom de la classe** | **Méthode** | **Points attribués** |
+| :- | :- | :-: |
+| **Piece** | `__init__` | 3 |
+| **TypePiece** | `vers_chaine` | 5 |
+| **CasePlateau** | `__init__` | 2 |
+|  | `est_occupe` | 3 |
+| **Couleur** | `__invert__` | 3.5 |
+|  | `vers_chaine` | 3.5 |
+| **Pos** | `__init__` | 5 |
+|  | `get_emplacement` | 2 |
+|  | `__add__` | 2 |
+|  | `ind` | 2 |
+|  | `est_hors_plateau` | 4 |
+|  | `est_dans_liste_pos` | 3 |
+|  | `__str__` | 1 |
+|  | `__eq__` | 1 |
+| **Plateau** | `__init__` | 4 |
+|  | `ajoute_piece` | 1 |
+|  | `bouge_piece` | 4 |
+|  | `est_case_occupe` | 1 |
+|  | `init_partie` | 6 |
+|  | `liste_piece` | 3 |
+|  | `piece_a_position` | 1 |
+| **JeuEchec** | `__init__` | 2 |
+|  | `est_case_joueur` | 2 |
+|  | `est_case_joueur_inverse` | 2 |
+|  | `liste_mouvement_cavalier` | 3 |
+|  | `liste_mouvement_fou` | 4 |
+|  | `liste_mouvement_tour` | 4 |
+|  | `liste_mouvement_dame` | 4 |
+|  | `liste_mouvement_roi` | 5 |
+|  | `liste_mouvement_pion` | 4 |
+|  | `est_mouvement_valide` | 2 |
+|  | `liste_mouvement_valide_joueur` | 4 |
+|  | `liste_mouvement_valide_pos` | 2 |
+|  | `pos_roi_joueur` | 2 |
+| **Total** |  | /**100** |
+
 
 
 
