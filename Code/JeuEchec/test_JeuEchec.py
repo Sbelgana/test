@@ -457,10 +457,9 @@ class TestJeuEchec(unittest.TestCase):
         # Le pion blanc se sacrifie pour bloquer la dame noire
         self.assertFalse(self.jeu.est_echec_et_mat(Couleur.BLANC))
 
-    def test_echec_et_mat_scenario_1(self):
+    def test_echec_et_mat_scenario(self):
         self.jeu.plateau = Plateau()
     
-        # Configuration du plateau basée sur img_01.png
         # Pièces noires
         self.jeu.plateau.ajoute_piece(Piece(TypePiece.CAVALIER, Couleur.NOIR), Pos("b8"))
         self.jeu.plateau.ajoute_piece(Piece(TypePiece.ROI, Couleur.NOIR), Pos("e8"))
