@@ -12,6 +12,7 @@ class Interface:
         
         # Init PyGame 
         pygame.init()
+        pygame.display.set_caption("Jeu d'Echec")
        
         # Cree le GUI pour le jeu 
         self.SCREEN = pygame.display.set_mode((self.WINDOW_WIDTH + 220, self.WINDOW_HEIGHT + 20))
@@ -35,7 +36,7 @@ class Interface:
 
         self.SCREEN.fill(color=(160,82,45), rect=(0, 0, self.WINDOW_WIDTH + 20, self.WINDOW_HEIGHT + 20)) 
         for i, x in enumerate(range(20, self.WINDOW_WIDTH, self.blockSize)):
-            for j, y in enumerate(range(0, self.WINDOW_HEIGHT, self.blockSize)):
+            for j, y in enumerate(range(0, self.WINDOW_HEIGHT-20, self.blockSize)):
                 rect = pygame.Rect(x, y, self.blockSize, self.blockSize)
                 if (i + j) % 2 == 0:
                     fill_color = (139,69,19)
@@ -45,7 +46,7 @@ class Interface:
                 pygame.draw.rect(self.SCREEN, (0, 0, 0), rect, 1)
 
                 if i == 0:
-                    self.SCREEN.blit(self.font.render(str(8 - j), True, (0,0,0)), (x-17, y+self.blockSize//2-10))
+                    self.SCREEN.blit(self.font.render(str(j+1), True, (0,0,0)), (x-17, y+self.blockSize//2-10))
                 if j == 7:
                     self.SCREEN.blit(self.font.render('ABCDEFGH'[i], True, (0,0,0)), (x - 8 +self.blockSize//2, y+self.blockSize - 5))
 
@@ -71,11 +72,15 @@ class Interface:
         self.pieces_png = {'BLANC': {'ROI': kingW, 'DAME': queenW, 'CAVALIER': knightW, 'FOU': bishopW, 'TOUR': rookW, 'PION': pawnW},
                         'NOIR': {'ROI': kingB, 'DAME': queenB, 'CAVALIER': knightB, 'FOU': bishopB, 'TOUR': rookB, 'PION': pawnB}}
 
-      def affiche_liste_piece(self, liste_piece):
+      def affiche_liste_piece(self, liste_piece = None):
         """
         Fonction pour afficher les pièces sur le plateau aux emplacements corrects. Prend en paramètre une liste de
-        pièce comme retourné par la fonction "liste_piece" de la classe Plateau.
+        pièce comme retourné par la fonction "liste_piece" de la classe Plateau. Par défaut, on utilise l'attribute
+        "liste_piece_to_render"
         """
+
+        if not liste_piece:
+           liste_piece = self.liste_piece_to_render
 
         for piece in liste_piece:
             self.SCREEN.blit(self.pieces_png[piece['couleur'].name][piece['nom'].name], \
@@ -100,7 +105,7 @@ class Interface:
                 if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                     posMouse = pygame.mouse.get_pos()
                     # Not over the board
-                    if 20 < posMouse[0] < (self.WINDOW_WIDTH + 20) and posMouse[1] < self.WINDOW_HEIGHT:
+                    if 20 < posMouse[0] < self.WINDOW_WIDTH and posMouse[1] < self.WINDOW_HEIGHT - 20:
                         col = posMouse[0] // self.blockSize
                         line = posMouse[1] // self.blockSize + 1
                         isCaseSelected = True
@@ -118,7 +123,8 @@ class Interface:
         rect = pygame.Rect((ord(emplacement[0]) - 96) * self.blockSize - 70, int(emplacement[1]) * self.blockSize - self.blockSize, self.blockSize, self.blockSize)
         self.SCREEN.fill(color=(152,251,152), rect=rect)
         pygame.draw.rect(self.SCREEN, (0, 0, 0), rect, 1)
-        self.affiche_liste_piece(self.liste_piece_to_render)
+        pygame.display.update()
+        
 
       def place_curseur_roi(self, emplacement, checkmate=False):
         """
@@ -129,15 +135,15 @@ class Interface:
         self.SCREEN.fill(color=(255,114,118) if checkmate else (255,239,0), rect=rect)
         pygame.draw.rect(self.SCREEN, (0, 0, 0), rect, 1)
         if checkmate:
-            self.SCREEN.blit(self.font.render('Checkmate !', True, (0,0,0)), (830, 400))
-        self.affiche_liste_piece(self.liste_piece_to_render)
+            self.SCREEN.blit(self.font.render('Checkmate !', True, (0,0,0)), (750, 400))
+        self.affiche_liste_piece()
 
       def enleve_curseur(self):
         """
         Fonction qui enlève les cases mises en surbrillance si le joueur change de pièce ou déplace pièce. Cela équivaut à nettoyer l'échéquier
         de tout marqueur pour n'avoir que les pièces.
         """
-
+        
         self.default_board()
         pygame.display.update()
 
