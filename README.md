@@ -629,13 +629,18 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 | **Nom de la classe** | **Méthode** | **Points attribués** |
 | :- | :- | :-: |
-| **Piece** | `__init__` | 3 |
-| **TypePiece** | `vers_chaine` | 5 |
-| **CasePlateau** | `__init__` | 2 |
+| **Piece** | | |
+|  | `__init__` | 3 |
+| **TypePiece** | | |
+|  | `vers_chaine` | 5 |
+| **CasePlateau** | | |
+|  | `__init__` | 2 |
 |  | `est_occupe` | 3 |
-| **Couleur** | `__invert__` | 3.5 |
+| **Couleur** | | |
+|  | `__invert__` | 3.5 |
 |  | `vers_chaine` | 3.5 |
-| **Pos** | `__init__` | 5 |
+| **Pos** | | |
+|  | `__init__` | 5 |
 |  | `get_emplacement` | 2 |
 |  | `__add__` | 2 |
 |  | `ind` | 2 |
@@ -643,14 +648,16 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 |  | `est_dans_liste_pos` | 3 |
 |  | `__str__` | 1 |
 |  | `__eq__` | 1 |
-| **Plateau** | `__init__` | 4 |
+| **Plateau** | | |
+|  | `__init__` | 4 |
 |  | `ajoute_piece` | 1 |
 |  | `bouge_piece` | 4 |
 |  | `est_case_occupe` | 1 |
 |  | `init_partie` | 6 |
 |  | `liste_piece` | 3 |
 |  | `piece_a_position` | 1 |
-| **JeuEchec** | `__init__` | 2 |
+| **JeuEchec** | | |
+|  | `__init__` | 2 |
 |  | `est_case_joueur` | 2 |
 |  | `est_case_joueur_inverse` | 2 |
 |  | `liste_mouvement_cavalier` | 3 |
@@ -663,7 +670,8 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 |  | `liste_mouvement_valide_joueur` | 4 |
 |  | `liste_mouvement_valide_pos` | 2 |
 |  | `pos_roi_joueur` | 2 |
-| **Total** |  | /**100** |
+| **Total** |  | **100** |
+
 
 
 
