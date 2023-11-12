@@ -45,28 +45,28 @@ class Interface:
                 pygame.draw.rect(self.SCREEN, (0, 0, 0), rect, 1)
 
                 if i == 0:
-                    self.SCREEN.blit(self.font.render(str(8 - j), True, (0,0,0)), (x-17, y+self.blockSize//2))
+                    self.SCREEN.blit(self.font.render(str(8 - j), True, (0,0,0)), (x-17, y+self.blockSize//2-10))
                 if j == 7:
-                    self.SCREEN.blit(self.font.render('ABCDEFGH'[i], True, (0,0,0)), (x+self.blockSize//2, y+self.blockSize - 5))
+                    self.SCREEN.blit(self.font.render('ABCDEFGH'[i], True, (0,0,0)), (x - 8 +self.blockSize//2, y+self.blockSize - 5))
 
       def load_assets(self):
         """
         Chargement des images des pièces en mémoires. On met le tout dans un dictionnaire qu'on appelle qu'en on veut 
         montrer l'image.
         """
-        curr_path = os.path.dirname(os.path.abspath(__file__))
-        bishopB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'bd.png')).convert_alpha(), (100, 100))
-        bishopW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'bl.png')).convert_alpha(), (100, 100))
-        pawnB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'pd.png')).convert_alpha(), (100, 100))
-        pawnW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'pl.png')).convert_alpha(), (100, 100))
-        knightB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'nd.png')).convert_alpha(), (100, 100))
-        knightW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'nl.png')).convert_alpha(), (100, 100))
-        rookB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'rd.png')).convert_alpha(), (100, 100))
-        rookW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'rl.png')).convert_alpha(), (100, 100))
-        queenB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'qd.png')).convert_alpha(), (100, 100))
-        queenW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'ql.png')).convert_alpha(), (100, 100))
-        kingB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'kd.png')).convert_alpha(), (100, 100))
-        kingW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'kl.png')).convert_alpha(), (100, 100))
+        curr_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), '..', '..')
+        bishopB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'bd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        bishopW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'bl.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        pawnB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'pd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        pawnW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'pl.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        knightB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'nd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        knightW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'nl.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        rookB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'rd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        rookW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'rl.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        queenB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'qd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        queenW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'ql.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        kingB = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'kd.png')).convert_alpha(), (self.blockSize, self.blockSize))
+        kingW = pygame.transform.scale(pygame.image.load(os.path.join(curr_path, 'assets', 'kl.png')).convert_alpha(), (self.blockSize, self.blockSize))
 
         self.pieces_png = {'BLANC': {'ROI': kingW, 'DAME': queenW, 'CAVALIER': knightW, 'FOU': bishopW, 'TOUR': rookW, 'PION': pawnW},
                         'NOIR': {'ROI': kingB, 'DAME': queenB, 'CAVALIER': knightB, 'FOU': bishopB, 'TOUR': rookB, 'PION': pawnB}}
@@ -82,9 +82,7 @@ class Interface:
              ((ord(piece['emplacement'][0]) - 96) * self.blockSize - 70, int(piece['emplacement'][1]) * self.blockSize - self.blockSize))
         # HACK: to rerender the piece after displaying the cursor since I don't want to have to play with sprite layers!
         self.liste_piece_to_render = liste_piece
-        pygame.display.update()
-        
-        
+        pygame.display.update()       
         
 
       def saisir_emplacement(self):
