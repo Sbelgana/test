@@ -123,8 +123,7 @@ class Interface:
         rect = pygame.Rect((ord(emplacement[0]) - 96) * self.blockSize - 70, int(emplacement[1]) * self.blockSize - self.blockSize, self.blockSize, self.blockSize)
         self.SCREEN.fill(color=(152,251,152), rect=rect)
         pygame.draw.rect(self.SCREEN, (0, 0, 0), rect, 1)
-        pygame.display.update()
-        
+        self.affiche_liste_piece(self.liste_piece_to_render)
 
       def place_curseur_roi(self, emplacement, checkmate=False):
         """
