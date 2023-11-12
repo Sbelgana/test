@@ -627,8 +627,18 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 ## 6. Barème /100 <a name="bareme"></a>
 
-|**Nom des fonctions**|**Nombre de points attribuer**|
+|**Nom de la classe**|**Nombre de points attribués**|
 | :- | :- |  
+|JeuEchec|40|
+| Plateau | 20 |  
+| Pos | 20 |  
+| TypePiece | 5 |  
+| Piece | 3 |  
+| Couleur | 7 |  
+| CasePlateau | 5 |  
+| Total | 100 |  
+
+
 
 
 ## Annexe: Guide et normes de codage <a name="annexe"></a>
