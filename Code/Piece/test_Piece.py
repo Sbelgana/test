@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from Piece import *
+from Piece import*
 
 class TestPiece(unittest.TestCase):
 

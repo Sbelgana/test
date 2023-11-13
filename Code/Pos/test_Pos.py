@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from Pos import *
+from Pos import*
 
 class TestPos(unittest.TestCase):
 

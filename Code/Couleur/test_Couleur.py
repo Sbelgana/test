@@ -3,7 +3,7 @@ import os
 import sys
 import tempfile
 
-from Couleur import *  
+from Couleur import*  
 
 class TestCouleur(unittest.TestCase):
 
