@@ -503,7 +503,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     Dans le cas où `juste_mouvement` est `False`, il faut donc vérifier que les mouvements du roi ne le mettent pas en échec. Un moyen simple est de "simuler" le mouvement et de vérifier ce qu'il se passe (échec ou non). Si aucun échec, le mouvement est bon, sinon, on sait que l'on ne peut pas faire ce mouvement.
 
 
-9. <ins>  liste_mouvement_pion(self, pos)  </ins>  
+8. <ins>  liste_mouvement_pion(self, pos)  </ins>  
 
     Calcule et retourne une liste des mouvements valides pour un pion à une position donnée.
 
@@ -521,7 +521,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 '
 
-10. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
+9. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
 
     Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
 
@@ -532,24 +532,8 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `True` si le mouvement est valide.
     
-11. <ins>  pos_roi_joueur(self, joueur)  </ins>  
 
-    Retourne la position du roi pour le joueur spécifié.
-
-    L'implémentation de cette méthode doit être basée sur l'algorithme détaillé dans la figure ci-dessous. Cet algorithme décrit une méthode systématique pour localiser le roi d'un joueur donné sur le plateau, en tenant compte des spécificités de la disposition des pièces et des règles du jeu.
-
-    <p align="center">
-        <img src="images/Algo_07.svg">
-    </p>
-    
-    **Paramètres :**
-    - `joueur (Couleur)` : La couleur du joueur à vérifier.
-    
-    **Retour :**
-    La position (Pos) du roi du joueur. 
-
-
-12. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
+10. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
     
@@ -560,7 +544,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de la pièce à la position donnée.
     
-13. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
+11. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
 
@@ -577,10 +561,32 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     La liste des mouvements possibles de toutes les pièces du joueur.
 
+12. <ins>  pos_roi_joueur(self, joueur)  </ins>  
 
-14. <ins>  est_echec(self, joueur)  </ins>  
+    Retourne la position du roi pour le joueur spécifié.
+
+    L'implémentation de cette méthode doit être basée sur l'algorithme détaillé dans la figure ci-dessous. Cet algorithme décrit une méthode systématique pour localiser le roi d'un joueur donné sur le plateau, en tenant compte des spécificités de la disposition des pièces et des règles du jeu.
+
+    <p align="center">
+        <img src="images/Algo_07.svg">
+    </p>
+    
+    **Paramètres :**
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
+    
+    **Retour :**
+    La position (Pos) du roi du joueur. 
+
+
+13. <ins>  est_echec(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_09.svg">
+    </p>
    
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
@@ -588,9 +594,34 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
-14. <ins>  est_echec_et_mat(self, joueur)  </ins>  
+15. <ins>  est_en_echec_apres_mouvement(self, pos_depart, pos_fin, joueur)  </ins>  
+    
+    Vérifie si un joueur se trouve en situation d'échec après un mouvement spécifique sur l'échiquier.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec après un mouvement spécifique sur l'échiquier en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_10.svg">
+    </p>
+
+    **Paramètres :**
+    - `pos_depart (Pos)` : La position de la case de depart.
+    - `pos_fin (Pos)` : La position de la case de fin.
+    - `joueur (Couleur)` : La couleur du joueur à vérifier.
+
+    **Retour :**
+    Renvoie `True` si le joueur se trouve en situation d'échec après un mouvement. Sinon `False`.
+
+    
+16. <ins>  est_echec_et_mat(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec et mat.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec et mat en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_11.svg">
+    </p>
    
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
@@ -600,76 +631,58 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
     **Notes :** Avant de renvoyer `True` ou `False`, on peut utiliser la fonction `place_curseur_roi` de `Interface` pour afficher au joueur le fait que le roi est Echec et Mat.
 
-15. <ins>  isEmplacementDepartValide(self, pos)  </ins>  
-    
-    Vérifie si l'emplacement de départ d'un mouvement est valide (i.e. une pièce occupe bien la case choisi, la pièce a la bonne couleur...)
 
-    **Paramètres :**
-    - `pos (Pos)` : La position de la case choisie.
 
-    **Retour :**
-    Renvoie `True` si l'emplacement de départ est valide. Sinon `False`.
 
-16. <ins>  tour_joueur_courant(simple)  </ins>  
-    Gère un tour complet du joueur courant.
-
-    Le tour consiste à :
-    
-        1. Sélectionner un emplacement de départ (i.e. un pièce) via l'interface. On boucle tant que le joueur n'a pas choisi un emplacement de départ convenable (par exemple une case vide). 
-        2. On calcule les mouvements valides de la pièce. Afficher des curseurs sur les cases où la pièce peut faire un mouvement valide. 
-        3. Sélectionner un emplacement et vérifier qu'il est parmi les mouvements possibles. On pourra aussi faire en sorte que le joueur peut changer de pièce (i.e. si on clique sur un autre pièce du joueur, les marqueurs changent pour afficher les mouvements possibles de cette pièces).
-        4. Répéter 2 et 3 tant que cela n'est pas vrai. 
-        5. Bouger la pièce sur le plateau et mettre à jour l'interface (pièce mangée, enlèvement des marqueurs et rafraîchissement de l'interface).
-    
-    La fonction doit être robuste par rapport aux actions de l'utilisateur. Si le joueur fait une mauvaise sélection à n'importe quel moment (choisit une case qui n'est pas de sa couleur, sélectionne un deuxième emplacement qui n'est pas un mouvement valide, etc.), recommencer la saisie.
-    
-    **Indices :** Pour afficher / interagir avec l'interface, utiliser les méthodes données dans la classe Interface (lire la documentation aide !).
 
 ## 6. Barème /100 <a name="bareme"></a>
 
 | **Nom de la classe** | **Méthode** | **Points attribués** |
 | :- | :- | :-: |
-| **Piece** | | |
+| **Piece** | |3 |
 |  | `__init__` | 3 |
-| **TypePiece** | | |
+| **TypePiece** | | 5|
 |  | `vers_chaine` | 5 |
-| **CasePlateau** | | |
+| **CasePlateau** | |5 |
 |  | `__init__` | 2 |
 |  | `est_occupe` | 3 |
-| **Couleur** | | |
+| **Couleur** | |7 |
 |  | `__invert__` | 3.5 |
 |  | `vers_chaine` | 3.5 |
-| **Pos** | | |
-|  | `__init__` | 5 |
+| **Pos** | | 18|
+|  | `__init__` | 4 |
 |  | `get_emplacement` | 2 |
 |  | `__add__` | 2 |
 |  | `ind` | 2 |
-|  | `est_hors_plateau` | 4 |
+|  | `est_hors_plateau` | 3 |
 |  | `est_dans_liste_pos` | 3 |
 |  | `__str__` | 1 |
 |  | `__eq__` | 1 |
-| **Plateau** | | |
-|  | `__init__` | 4 |
+| **Plateau** | |16 |
+|  | `__init__` | 3 |
 |  | `ajoute_piece` | 1 |
-|  | `bouge_piece` | 4 |
+|  | `bouge_piece` | 3 |
 |  | `est_case_occupe` | 1 |
-|  | `init_partie` | 6 |
+|  | `init_partie` | 4 |
 |  | `liste_piece` | 3 |
 |  | `piece_a_position` | 1 |
-| **JeuEchec** | | |
+| **JeuEchec** | | 46 |
 |  | `__init__` | 2 |
 |  | `est_case_joueur` | 2 |
 |  | `est_case_joueur_inverse` | 2 |
 |  | `liste_mouvement_cavalier` | 3 |
-|  | `liste_mouvement_fou` | 4 |
-|  | `liste_mouvement_tour` | 4 |
+|  | `liste_mouvement_fou` | 3 |
+|  | `liste_mouvement_tour` | 3 |
 |  | `liste_mouvement_dame` | 4 |
-|  | `liste_mouvement_roi` | 5 |
+|  | `liste_mouvement_roi` | 4 |
 |  | `liste_mouvement_pion` | 4 |
 |  | `est_mouvement_valide` | 2 |
-|  | `liste_mouvement_valide_joueur` | 4 |
+|  | `liste_mouvement_valide_joueur` | 3 |
 |  | `liste_mouvement_valide_pos` | 2 |
 |  | `pos_roi_joueur` | 2 |
+|  | `est_echec` | 2 |
+|  | `est_en_echec_apres_mouvement` | 2 |
+|  | `est_echec_et_mat` | 6 |
 | **Total** |  | **100** |
 
 
