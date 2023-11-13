@@ -528,7 +528,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     L'implémentation de cette méthode doit suivre les étapes de l'algorithme illustré dans la figure ci-dessous. Cet algorithme fournit une procédure détaillée pour évaluer de manière exhaustive tous les mouvements possibles des pièces d'un joueur donné, tout en considérant les règles spécifiques du jeu, y compris la protection du roi contre l'échec.
 
     <p align="center">
-        <img src="images/Algo_08.svg">
+        <img src="images/Algo_07.svg">
     </p>
     
     **Paramètres :**
@@ -570,7 +570,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     L'implémentation de cette méthode doit être basée sur l'algorithme détaillé dans la figure ci-dessous. Cet algorithme décrit une méthode systématique pour localiser le roi d'un joueur donné sur le plateau, en tenant compte des spécificités de la disposition des pièces et des règles du jeu.
 
     <p align="center">
-        <img src="images/Algo_07.svg">
+        <img src="images/Algo_08.svg">
     </p>
     
     **Paramètres :**
