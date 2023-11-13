@@ -581,6 +581,12 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 13. <ins>  est_echec(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_09.svg">
+    </p>
    
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
@@ -588,9 +594,15 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     **Retour :**
     Renvoie `true` si le joueur adverse a un mouvement valide sur la case du roi du joueur. 
 
-14. <ins>  est_en_echec_apres_mouvement(self, pos_depart, pos_fin, joueur)  </ins>  
+15. <ins>  est_en_echec_apres_mouvement(self, pos_depart, pos_fin, joueur)  </ins>  
     
-    Vérifie si un joueur se trouve en situation d'échec après un mouvement spécifique sur l'échiquier. 
+    Vérifie si un joueur se trouve en situation d'échec après un mouvement spécifique sur l'échiquier.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec après un mouvement spécifique sur l'échiquier en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_10.svg">
+    </p>
 
     **Paramètres :**
     - `pos_depart (Pos)` : La position de la case de depart.
@@ -601,9 +613,15 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     Renvoie `True` si le joueur se trouve en situation d'échec après un mouvement. Sinon `False`.
 
     
-15. <ins>  est_echec_et_mat(self, joueur)  </ins>  
+16. <ins>  est_echec_et_mat(self, joueur)  </ins>  
 
     Détermine si le joueur spécifié est en situation d'échec et mat.
+
+    Pour implémenter cette méthode, référez-vous à l'algorithme détaillé dans la figure ci-dessous. Cet algorithme fournit une approche étape par étape pour déterminer si le joueur est en échec et mat en tenant compte des règles du jeu et des contraintes du plateau.
+
+    <p align="center">
+        <img src="images/Algo_11.svg">
+    </p>
    
     **Paramètres :**
     - `joueur (Couleur)` : La couleur du joueur à vérifier.
