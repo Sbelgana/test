@@ -521,30 +521,7 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
 
 '
 
-9. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
-
-    Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
-
-    **Paramètres :**
-    - `pos_depart (Pos)` : La position de départ du mouvement.
-    - `pos_fin (Pos)` : La position finale après le déplacement.
-   
-    **Retour :**
-    Renvoie `True` si le mouvement est valide.
-    
-
-10. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
-
-    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
-    
-    **Paramètres :**
-    - `pos (Pos)` : La position de la pièce.
-    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
-    
-    **Retour :**
-    La liste des mouvements possibles de la pièce à la position donnée.
-    
-11. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
+9. <ins>  liste_mouvement_valide_joueur(self, joueur, juste_mouvement=False)  </ins>  
 
     Calcule et retourne tous les mouvements valides pour toutes les pièces d'un joueur.
 
@@ -560,6 +537,31 @@ Initialise le jeu d'échecs en créant un nouveau plateau et en définissant le 
     
     **Retour :**
     La liste des mouvements possibles de toutes les pièces du joueur.
+    
+10. <ins>  est_mouvement_valide(self, pos_depart, pos_fin)  </ins>  
+
+    Détermine si le déplacement d'une pièce d'une position de départ à une position de fin est valide.
+
+    **Paramètres :**
+    - `pos_depart (Pos)` : La position de départ du mouvement.
+    - `pos_fin (Pos)` : La position finale après le déplacement.
+   
+    **Retour :**
+    Renvoie `True` si le mouvement est valide.
+    
+
+11. <ins>  liste_mouvement_valide_pos(self, pos, juste_mouvement=False)  </ins>  
+
+    Calcule et retourne tous les mouvements valides pour une pièce à une position donnée. Le mouvement dépend bien sûr de la pièce concernée.
+    
+    **Paramètres :**
+    - `pos (Pos)` : La position de la pièce.
+    - `juste_mouvement (Bool)` : Prise en compte ou non de la mise en échec potentiel du roi. Nécessaire ici pour le mouvement du roi. Défaut à `False`.
+    
+    **Retour :**
+    La liste des mouvements possibles de la pièce à la position donnée.
+    
+
 
 12. <ins>  pos_roi_joueur(self, joueur)  </ins>  
 
